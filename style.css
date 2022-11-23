@@ -11,7 +11,7 @@
     /* background-image: linear-gradient(rgba(12,3,51,0.3), rgba(12,3,51,0.3)); */
     position: relative;
     padding: 0 5%;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
 }
@@ -48,14 +48,17 @@ nav ul li a:hover{
 
 .content{
     text-align: center;
+    margin-top: -250px;
 }
 
 .content h1{
-    font-size: 160px;
+    width: 100%;
+    font-size: 85px;
     color: rgb(255, 163, 58);
     font-weight: 600;
     transition: 0.5s;
     margin-bottom: 10px;
+    align-items: center;
 }
 
 .content h1:hover{
@@ -76,9 +79,11 @@ nav ul li a:hover{
 }
 
 .back-video{
-    position: absolute;
+    position: fixed;
+/*    
     right: 0;
     bottom: 0;
+*/
     z-index: -1;
 }
 
@@ -87,6 +92,7 @@ nav ul li a:hover{
         width: 100%;
         height: auto;
         margin-bottom: -55px;
+        position: relative;
     }
 }
 
@@ -98,21 +104,24 @@ nav ul li a:hover{
     }
 }
 
-.card{
-    width: 50px;
-    height: 50px;
-    display: inline-block;
-    border-radius: 5px;
-    padding: 15px 25px;
-    box-sizing: border-box;
-    cursor: pointer;
-    margin: 300px 112px;
-    align-items: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    transition-duration: 0.5s;
-    margin-top: 100px;
 
+
+.card{
+    margin: 0px;
+    width: 100%;
+    align-items: center;
+    display: inline-block;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    margin-top: -100px;
+    
+
+}
+
+img{
+    max-width: 70%;
+    height: 70%;
+    object-fit: cover;
 }
 
 
@@ -144,29 +153,26 @@ nav ul li a:hover{
     transform: scale(1.2);
 }
 
-h5{
+h6{
     display: inline-block;
-    margin: 100px 0px;
-    text-align: center;
     color: rgb(255, 182, 73);
+    align-items: center;
 }
 
-
-.container{
-    margin-right: 800px;
-    margin-bottom: -100px;
-    padding: 305x 250x;
+.biopic{
+    margin: 0;
+    padding: 0;
+    margin-top: -800px;
+    width: 70%;
     height: 100vh;
-    background-size: contain;
-    background-repeat: no-repeat;
 }
 
 .bio{
-    padding: 0px 80px;
-    margin: 0;
-    margin-left: 1300px;
-    margin-top: -800px;
-    font-size: large;
+    margin-left: 260px;
+    margin-top:-700px;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: medium;
     color: aliceblue;
     box-sizing: border-box;
     align-items: center;
