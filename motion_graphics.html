@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Website - Motion Graphics</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Coda&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+      font-family: 'Coda', sans-serif;
+      background-image: url("images/bg.png"); /* Replace with the actual path to your PNG image */
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+
+    h1, h2, p {
+      color: white;
+      text-align: center;
+      z-index: 1;
+    }
+    
+    .taskbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #00000080; /* Adjust the transparency and color as desired */
+      z-index: 2;
+    }
+    
+    .taskbar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+    }
+    
+    .taskbar ul li {
+      margin: 0 10px;
+    }
+    
+    .taskbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 5px 10px;
+      transition: color 0.3s, background-color 0.3s, transform 0.3s;
+    }
+    
+    .taskbar ul li a:hover {
+      color: aqua;
+      background-color: #000000; /* Adjust the background color on hover as desired */
+      transform: scale(1.1);
+    }
+    
+    .taskbar ul li a.active {
+      color: orange;
+      background-color: #000000; /* Adjust the background color when active as desired */
+    }
+
+    .video-list {
+      margin-top: 100px; /* Adjust the margin-top value as desired */
+    }
+    
+    .video-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+      border: 2px solid white; /* Add outline */
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+    .video-list h3 {
+      margin-bottom: 10px;
+    }
+    
+    .video-list li {
+      margin: 10px;
+    }
+    
+    .video-list li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s, transform 0.3s;
+    }
+    
+    .video-list li a:hover {
+      text-decoration: underline;
+      color: aqua;
+      transform: scale(1.1);
+    }
+
+    /* Rest of your CSS styles */
+
+  </style>
+</head>
+<body>
+  <div class="taskbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="music.html">Music</a></li>
+      <li><a href="motion_graphics.html" class="active">Motion Graphics</a></li>
+      <li><a href="3d_visuals.html">3D Visuals</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <h1>Motion Graphics</h1>
+
+  <div class="video-list">
+    <h2>Embedded Video List</h2>
+    <ul>
+      <li>
+        <h3>Video Title 1</h3>
+        <iframe title="vimeo-player" src="https://player.vimeo.com/video/843798652?h=700abc6d9a" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
+      </li>
+      <li>
+        <h3>Video Title 2</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
+      </li>
+      <li>
+        <h3>Video Title 3</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
+      </li>
+    </ul>
+  </div>
+
+</body>
+</html>
