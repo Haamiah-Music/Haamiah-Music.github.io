@@ -25,7 +25,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.7; /* Adjust the opacity value as desired */
+      opacity: 1; /* Adjust the opacity value as desired */
       z-index: -1;
     }
 
@@ -82,6 +82,9 @@
       flex-direction: column;
       align-items: center;
       margin-top: 20px;
+      color: white; /* Set the text color to white */
+      background-color: rgba(0, 0, 0, 0.6); /* Add background color with opacity */
+      padding: 20px; /* Add padding for spacing */
     }
     
     .music-player audio {
@@ -139,7 +142,10 @@
     }
     
     .music-list {
-      margin-top: 30px;
+      margin-top: 10px; /* Bring the song list higher */
+      background-color: rgba(0, 0, 0, 0.6); /* Add background color with opacity */
+      padding: 10px; /* Add padding for spacing */
+      border-radius: 5px;
     }
     
     .music-list ul {
@@ -147,9 +153,6 @@
       padding: 0;
       margin: 0;
       text-align: center;
-      border: 2px solid white; /* Add outline */
-      padding: 10px;
-      border-radius: 5px;
     }
     
     .music-list li {
@@ -213,7 +216,6 @@
   </div>
   
   <div class="music-list">
-    <h3>Available Songs</h3>
     <ul>
       <li><a href="#" class="song-link" data-src="music/HAAMIAH - Levitate.wav">Levitate</a></li>
       <li><a href="#" class="song-link" data-src="music/HAAMIAH - Rise Of The Phoenix.wav">Rise Of The Phoneix</a></li>

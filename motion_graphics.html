@@ -12,8 +12,6 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      overflow: hidden;
       position: relative;
       font-family: 'Coda', sans-serif;
       background-image: url("images/bg.png"); /* Replace with the actual path to your PNG image */
@@ -71,9 +69,24 @@
     }
 
     .video-list {
-      margin-top: 100px; /* Adjust the margin-top value as desired */
+      margin-top: 60px; /* Adjust the margin-top value as desired */
+      max-height: calc(100vh - 110px); /* Adjust the maximum height to leave space for the taskbar and other content */
+      overflow-y: scroll;
+      width: 100%; /* Set the width to 100% */
     }
     
+    .video-list::-webkit-scrollbar {
+      width: 0.5em; /* Adjust the width of the scrollbar as desired */
+    }
+    
+    .video-list::-webkit-scrollbar-track {
+      background-color: transparent; /* Adjust the background color of the scrollbar track as desired */
+    }
+    
+    .video-list::-webkit-scrollbar-thumb {
+      background-color: white; /* Adjust the color of the scrollbar thumb as desired */
+    }
+
     .video-list ul {
       list-style: none;
       padding: 0;
@@ -86,6 +99,7 @@
     
     .video-list h3 {
       margin-bottom: 10px;
+      color: white; /* Set the title color to white */
     }
     
     .video-list li {
@@ -120,22 +134,20 @@
     </ul>
   </div>
 
-  <h1>Motion Graphics</h1>
-
   <div class="video-list">
     <h2>Embedded Video List</h2>
     <ul>
       <li>
-        <h3>Video Title 1</h3>
-        <iframe title="vimeo-player" src="https://player.vimeo.com/video/843798652?h=700abc6d9a" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
+        <h3>Product Advertisement Demo #1</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/zHDaKfRsz0A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </li>
       <li>
-        <h3>Video Title 2</h3>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
+        <h3>Purfiction</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/40srO-RqFcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </li>
       <li>
-        <h3>Video Title 3</h3>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
+        <h3>Sunset Chills</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/JrIVAylvyQ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </li>
     </ul>
   </div>
