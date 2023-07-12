@@ -155,6 +155,7 @@
       padding: 10px;
       border-radius: 5px;
       border: 1px solid white;
+      margin-bottom: 70px; /* Add margin to create space for the music player */
     }
     
     .music-list ul {
@@ -205,6 +206,8 @@
     @media (max-width: 768px) {
       .taskbar {
         flex-direction: column;
+        position: sticky;
+        top: 0;
       }
     
       .logo {
@@ -214,6 +217,10 @@
     
       .taskbar ul {
         order: 1;
+      }
+      
+      .music-list {
+        margin-bottom: 0; /* Remove bottom margin to avoid overlapping */
       }
     }
   </style>
@@ -233,7 +240,7 @@
       <img src="images/Haamiah (LOGO2).png" alt="Logo">
     </div>
   </div>
-  
+   
 <!--  <h1>Music</h1>  -->
   
   <div class="music-player">
