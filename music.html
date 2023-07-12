@@ -11,8 +11,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      overflow: hidden;
-      position: relative;
+      justify-content: center; /* Add vertical center alignment */
+      min-height: 100vh; /* Set minimum height to occupy the full viewport */
       font-family: 'Coda', sans-serif;
     }
 
@@ -79,12 +79,15 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 20px;
+      margin-top: 150px; /* Adjust the top margin */
+      margin-bottom: 20px; /* Add bottom margin */
       color: white; /* Set the text color to white */
       background-color: rgba(0, 0, 0, 0.6); /* Add background color with opacity */
       padding: 20px; /* Add padding for spacing */
-      max-height: calc(100vh - 100px); /* Adjust the max height as desired */
-      overflow-y: auto;
+      overflow-y: auto; /* Enable scrolling */
+      max-height: calc(100vh - 200px); /* Adjust the max height as desired */
+      border: 1px solid white; /* Add white border */
+      border-radius: 10px; /* Add border radius for rounded corners */
     }
     
     .music-player audio {
@@ -142,10 +145,12 @@
     }
     
     .music-list {
-      margin-top: 10px; /* Bring the song list higher */
+      margin-top: 20px; /* Adjust the top margin */
+      margin-bottom: 20px; /* Add bottom margin */
       background-color: rgba(0, 0, 0, 0.6); /* Add background color with opacity */
       padding: 10px; /* Add padding for spacing */
       border-radius: 5px;
+      border: 1px solid white; /* Add white border */
     }
     
     .music-list ul {
@@ -178,8 +183,8 @@
     }
     
     @media (max-width: 768px) {
-      body {
-        justify-content: flex-start;
+      .music-container {
+        margin-top: 80px; /* Adjust the top margin for mobile devices */
       }
     }
   </style>
