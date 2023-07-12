@@ -18,6 +18,7 @@
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center center;
+      background-attachment: fixed; /* Fix the background position */
     }
 
     h1, h2, p {
@@ -33,6 +34,10 @@
       width: 100%;
       background-color: #00000080; /* Adjust the transparency and color as desired */
       z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
     }
     
     .taskbar ul {
@@ -42,7 +47,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 50px;
+      height: 30px;
     }
     
     .taskbar ul li {
@@ -70,7 +75,7 @@
 
     .video-list {
       margin-top: 60px; /* Adjust the margin-top value as desired */
-      max-height: calc(100vh - 110px); /* Adjust the maximum height to leave space for the taskbar and other content */
+      max-height: calc(100vh - 120px); /* Adjust the maximum height to leave space for the taskbar and other content */
       overflow-y: scroll;
       width: 100%; /* Set the width to 100% */
     }
@@ -118,6 +123,22 @@
       color: aqua;
       transform: scale(1.1);
     }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      width: 40px;
+      height: 40px;
+      margin-left: -70px; /* Adjust the margin as needed */
+    }
+    
+    /* Center the navigation bar */
+    .taskbar ul {
+      margin: 0 auto;
+    }
 
     /* Rest of your CSS styles */
 
@@ -132,6 +153,9 @@
       <li><a href="3d_visuals.html">3D Visuals</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+    <div class="logo">
+      <img src="images/Haamiah (LOGO2).png" alt="Logo">
+    </div>
   </div>
 
   <div class="video-list">

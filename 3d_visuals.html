@@ -13,7 +13,6 @@
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center center;
-      min-height: 100vh; /* Use min-height instead of height */
       background-attachment: fixed; /* Fix the background position */
     }
 
@@ -30,6 +29,10 @@
       width: 100%;
       background-color: #00000080; /* Adjust the transparency and color as desired */
       z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
     }
     
     .taskbar ul {
@@ -39,7 +42,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 50px;
+      height: 30px;
     }
     
     .taskbar ul li {
@@ -69,6 +72,8 @@
       margin-top: 120px; /* Adjust the margin-top value to create space below the navigation bar and header */
       display: flex;
       justify-content: center;
+      overflow-y: auto; /* Add vertical scrollbar for content */
+      max-height: calc(100vh - 120px); /* Calculate max-height to fit content within viewport */
     }
     
     .image-list ul {
@@ -106,10 +111,21 @@
     .image-list li a:hover img {
       transform: scale(1.1);
     }
-
-    .image-list h3 {
-      color: white; /* Set the color of the title text to white */
-      margin-top: 10px; /* Adjust the margin-top value as desired */
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      width: 40px;
+      height: 40px;
+      margin-left: -70px; /* Adjust the margin as needed */
+    }
+    
+    /* Center the navigation bar */
+    .taskbar ul {
+      margin: 0 auto;
     }
 
     /* Rest of your CSS styles */
@@ -125,6 +141,9 @@
       <li><a href="3d_visuals.html" class="active">3D Visuals</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+    <div class="logo">
+      <img src="images/Haamiah (LOGO2).png" alt="Logo">
+    </div>
   </div>
 
 <!--  <h1>3D Visuals</h1>  -->

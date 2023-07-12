@@ -24,6 +24,10 @@
       width: 100%;
       background-color: #00000080; /* Adjust the transparency and color as desired */
       z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
     }
     
     .taskbar ul {
@@ -33,7 +37,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 50px;
+      height: 30px;
     }
     
     .taskbar ul li {
@@ -114,6 +118,22 @@
       font-size: 14px; /* Adjust the font size as desired */
       text-align: center;
     }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      width: 40px;
+      height: 40px;
+      margin-left: -70px; /* Adjust the margin as needed */
+    }
+    
+    /* Center the navigation bar */
+    .taskbar ul {
+      margin: 0 auto;
+    }
 
     /* Rest of your CSS styles */
 
@@ -128,6 +148,9 @@
       <li><a href="3d_visuals.html">3D Visuals</a></li>
       <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
+    <div class="logo">
+      <img src="images/Haamiah (LOGO2).png" alt="Logo">
+    </div>
   </div>
 
   <div class="video-container">
