@@ -78,71 +78,51 @@
       background-color: #000000; /* Adjust the background color when active as desired */
     }
     
-    .bio {
-      margin-top: 80px; /* Adjust the top margin */
-      margin-bottom: 50px; /* Add bottom margin */
-      padding: 20px;
-      background-color: rgba(13, 24, 31, 0.8); /* Dark navy blue background with opacity */
-      border: 2px solid #0d181f; /* Add a frame border */
-      border-radius: 10px; /* Add border radius for rounded corners */
-      max-width: 80%; /* Adjust the width of the bio container */
-      position: absolute; /* Use absolute positioning to center the bio */
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1; /* Increase z-index to appear above the navigation bar */
-      color: #FFA500; /* Light orange text color */
-      line-height: 1.6; /* Increase line height for better readability */
-    }
+.bio {
+  margin-top: 10vh; /* Use viewport height for top margin, adjust as needed */
+  margin-bottom: 50px; /* Add bottom margin */
+  padding: 20px;
+  background-color: rgba(13, 24, 31, 0.8); /* Dark navy blue background with opacity */
+  border: 2px solid #0d181f; /* Add a frame border */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  max-width: 80%; /* Adjust the width of the bio container */
+  position: relative; /* Use relative positioning */
+  z-index: 1; /* Increase z-index to appear above the navigation bar */
+  color: #FFA500; /* Light orange text color */
+  line-height: 1.6; /* Increase line height for better readability */
+}
 
-    /* Media queries for different screen sizes */
-    @media screen and (max-width: 768px) {
-      .bio {
-        font-size: 16px; /* Decrease font size for smaller screens */
-      }
-    }
+/* Media queries for different screen sizes */
+@media screen and (max-width: 768px) {
+  .bio {
+    font-size: 16px; /* Decrease font size for smaller screens */
+    margin-top: 10vh; /* Adjust the top margin */
+  }
+}
 
-    @media screen and (max-width: 480px) {
-      .bio {
-        font-size: 14px; /* Further decrease font size for smaller screens (e.g., mobile phones) */
-      }
-    }
+@media screen and (max-width: 480px) {
+  .bio {
+    font-size: 14px; /* Further decrease font size for smaller screens (e.g., mobile phones) */
+    margin-top: 10vh; /* Adjust the top margin */
+  }
+}
 
-    @media screen and (max-aspect-ratio: 1/1) {
-      .bio {
-        top: 50%; /* Reset top position for screens with 1:1 aspect ratio (square screens) */
-      }
-    }
+.logo {
+  display: flex;
+  align-items: center;
+}
 
-    /* Adjust positioning for more vertical displays */
-    @media screen and (max-height: 600px) {
-      .bio {
-        top: 50%; /* Reset top position for more vertical displays */
-      }
-    }
+.logo img {
+  width: 40px;
+  height: 40px;
+  margin-left: -70px; /* Adjust the margin as needed */
+}
 
-    /* Additional adjustment for 1.39:1 aspect ratio */
-    @media screen and (max-aspect-ratio: 1.39/1) {
-      .bio {
-        top: 50%; /* Reset top position for screens with 1.39:1 aspect ratio */
-      }
-    }
-    
-    .logo {
-      display: flex;
-      align-items: center;
-    }
-    
-    .logo img {
-      width: 40px;
-      height: 40px;
-      margin-left: -70px; /* Adjust the margin as needed */
-    }
-    
-    /* Center the navigation bar */
-    .taskbar ul {
-      margin: 0 auto;
-    }
+/* Center the navigation bar */
+.taskbar ul {
+  margin: 0 auto;
+}
+
 
   </style>
 </head>
