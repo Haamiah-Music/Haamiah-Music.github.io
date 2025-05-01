@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Marketing Content</title>
+  <title>HAAMIAH - 3D Visuals</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Coda&display=swap');
 
@@ -21,7 +21,7 @@
       text-align: center;
       z-index: 1;
     }
-
+    
     .taskbar {
       position: fixed;
       top: 0;
@@ -34,7 +34,7 @@
       align-items: center;
       padding: 10px;
     }
-
+    
     .taskbar ul {
       list-style: none;
       padding: 0;
@@ -44,11 +44,11 @@
       align-items: center;
       height: 30px;
     }
-
+    
     .taskbar ul li {
       margin: 0 10px;
     }
-
+    
     .taskbar ul li a {
       color: white;
       text-decoration: none;
@@ -56,62 +56,79 @@
       padding: 5px 10px;
       transition: color 0.3s, background-color 0.3s, transform 0.3s;
     }
-
+    
     .taskbar ul li a:hover {
       color: aqua;
       background-color: #000000; /* Adjust the background color on hover as desired */
       transform: scale(1.1);
     }
+    
+    .taskbar ul li a.active {
+      color: orange;
+      background-color: #000000; /* Adjust the background color when active as desired */
+    }
 
     .image-list {
       margin-top: 120px; /* Adjust the margin-top value to create space below the navigation bar and header */
-      display: block;
-      text-align: center;
-      padding: 20px;
+      display: flex;
+      justify-content: center;
+      overflow-y: auto; /* Add vertical scrollbar for content */
+      max-height: calc(100vh - 120px); /* Calculate max-height to fit content within viewport */
     }
-
+    
     .image-list ul {
       list-style: none;
       padding: 0;
       margin: 0;
+      text-align: center;
     }
-
+    
+    .image-list h2 {
+      margin-bottom: 10px;
+    }
+    
     .image-list li {
-      margin: 20px 0;
-    }
-
-    .image-list li a {
+      margin: 10px;
       display: inline-block;
+    }
+    
+    .image-list li a {
+      display: block;
       width: 400px; /* Adjust the image width as desired */
       height: 300px; /* Adjust the image height as desired */
       border: 2px solid white; /* Add border */
       border-radius: 5px;
       overflow: hidden;
     }
-
+    
     .image-list li a img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.3s;
     }
-
+    
     .image-list li a:hover img {
       transform: scale(1.1);
     }
-
-    .image-description {
-      font-size: 18px;
-      color: white;
-      margin-top: 10px;
-      display: inline-block;
-      text-align: center;
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      width: 40px;
+      height: 40px;
+      margin-left: -70px; /* Adjust the margin as needed */
     }
     
     /* Center the navigation bar */
     .taskbar ul {
       margin: 0 auto;
     }
+
+    /* Rest of your CSS styles */
 
   </style>
 
@@ -130,8 +147,8 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="music.html">Music</a></li>
       <li><a href="motion_graphics.html">Motion Graphics</a></li>
-      <li><a href="3d_visuals.html">3D Visuals</a></li>
-      <li><a href="marketing_content.html">Marketing Content</a></li> <!-- Removed "active" class -->
+      <li><a href="3d_visuals.html" class="active">3D Visuals</a></li>
+      <li><a href="marketing_content.html">Marketing Content</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="logo">
@@ -139,35 +156,123 @@
     </div>
   </div>
 
+<!--  <h1>3D Visuals</h1>  -->
+
   <div class="image-list">
+<!--    <h2>Local Images</h2>  -->
     <ul>
       <li>
         <a href="images/artwork/Interior_Design_3.png" target="_blank">
-          <img src="images/artwork/Interior_Design_3.png" alt="Interior Design 3">
+          <img src="images/artwork/Interior_Design_3.png" alt="Watch 1">
         </a>
-        <div class="image-description">Interior Design 3</div>
+        <h3>Interior Design 3</h3>
       </li>
       <li>
         <a href="images/artwork/Interior_Design_2.png" target="_blank">
-          <img src="images/artwork/Interior_Design_2.png" alt="Interior Design 2">
+          <img src="images/artwork/Interior_Design_2.png" alt="Watch 1">
         </a>
-        <div class="image-description">Interior Design 2</div>
+        <h3>Interior Design 2</h3>
       </li>
+      <li>
+        <a href="images/artwork/Interior_Design_1.png" target="_blank">
+          <img src="images/artwork/Interior_Design_1.png" alt="Watch 1">
+        </a>
+        <h3>Interior Design 1</h3>
+      </li>	    
       <li>
         <a href="images/artwork/Watch-1.png" target="_blank">
           <img src="images/artwork/Watch-1.png" alt="Watch 1">
         </a>
-        <div class="image-description">Watch 1</div>
+        <h3>Watch 1</h3>
+      </li>
+      <li>
+        <a href="images/artwork/Watch-2.png" target="_blank">
+          <img src="images/artwork/Watch-2.png" alt="Watch 2">
+        </a>
+        <h3>Watch 2</h3>
       </li>
       <li>
         <a href="images/artwork/Pepsi.png" target="_blank">
-          <img src="images/artwork/Pepsi.png" alt="Product Advertisement">
+          <img src="images/artwork/Pepsi.png" alt="Watch 2">
         </a>
-        <div class="image-description">Product Advertisement</div>
+        <h3>Product Advertisement</h3>
+      </li>	    
+      <li>
+        <a href="images/artwork/Car Speedometer.png" target="_blank">
+          <img src="images/artwork/Car Speedometer.png" alt="Car Speedometer">
+        </a>
+        <h3>Car Speedometer</h3>
       </li>
+      <li>
+        <a href="images/artwork/Glasses.png" target="_blank">
+          <img src="images/artwork/Glasses.png" alt="Glasses 1">
+        </a>
+        <h3>Glasses 1</h3>
+      </li>
+      <li>
+        <a href="images/artwork/Glasses (Back).png" target="_blank">
+          <img src="images/artwork/Glasses (Back).png" alt="Glasses 2">
+        </a>
+        <h3>Glasses 2</h3>
+      </li>
+      <li>
+        <a href="images/artwork/Jewelry.png" target="_blank">
+          <img src="images/artwork/Jewelry.png" alt="Jewelry">
+        </a>
+        <h3>Jewelry</h3>
+      </li>
+      <li>
+        <a href="images/artwork/JVN Shampoo.png" target="_blank">
+          <img src="images/artwork/JVN Shampoo.png" alt="Cosmetic Product">
+        </a>
+        <h3>Cosmetic Product</h3>
+      </li>
+      <li>
+        <a href="images/artwork/Concept Art.png" target="_blank">
+          <img src="images/artwork/Concept Art.png" alt="Original Fantasy Work">
+        </a>
+        <h3>Original Fantasy Work</h3>
+      </li>
+      <li>
+        <a href="images/artwork/Breakfast.png" target="_blank">
+          <img src="images/artwork/Breakfast.png" alt="Food">
+        </a>
+        <h3>Food</h3>
+      </li>
+      <li>
+        <a href="images/artwork/Green Apples.png" target="_blank">
+          <img src="images/artwork/Green Apples.png" alt="Green Apples">
+        </a>
+        <h3>Green Apples</h3>
+      </li>
+      <li>
+        <a href="images/artwork/Red Apple.png" target="_blank">
+          <img src="images/artwork/Red Apple.png" alt="Red Apple">
+        </a>
+        <h3>Red Apple</h3>
+      </li>
+      <li>
+        <a href="images/artwork/Orange.png" target="_blank">
+          <img src="images/artwork/Orange.png" alt="Orange">
+        </a>
+        <h3>Orange</h3>
+      </li>
+      <li>
+        <a href="images/artwork/Banana.png" target="_blank">
+          <img src="images/artwork/Banana.png" alt="Banana">
+        </a>
+        <h3>Banana</h3>
+      </li>
+      <li>
+        <a href="images/artwork/Natural Elements.png" target="_blank">
+          <img src="images/artwork/Natural Elements.png" alt="Fantasy Tree">
+        </a>
+        <h3>Fantasy Tree</h3>
+      </li>
+      
+	
     </ul>
   </div>
-
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKV53Q9T"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
