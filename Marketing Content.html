@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Marketing Content</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Coda&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Coda', sans-serif;
+      background-image: url("images/bg.png"); /* Replace with the actual path to your PNG image */
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed; /* Fix the background position */
+    }
+
+    h1, h2, p {
+      color: white;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .taskbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #00000080; /* Adjust the transparency and color as desired */
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .taskbar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 30px;
+    }
+
+    .taskbar ul li {
+      margin: 0 10px;
+    }
+
+    .taskbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 5px 10px;
+      transition: color 0.3s, background-color 0.3s, transform 0.3s;
+    }
+
+    .taskbar ul li a:hover {
+      color: aqua;
+      background-color: #000000; /* Adjust the background color on hover as desired */
+      transform: scale(1.1);
+    }
+
+    .image-list {
+      margin-top: 120px; /* Adjust the margin-top value to create space below the navigation bar and header */
+      display: block;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .image-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .image-list li {
+      margin: 20px 0;
+    }
+
+    .image-list li a {
+      display: inline-block;
+      width: 400px; /* Adjust the image width as desired */
+      height: 300px; /* Adjust the image height as desired */
+      border: 2px solid white; /* Add border */
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .image-list li a img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .image-list li a:hover img {
+      transform: scale(1.1);
+    }
+
+    .image-description {
+      font-size: 18px;
+      color: white;
+      margin-top: 10px;
+      display: inline-block;
+      text-align: center;
+    }
+    
+    /* Center the navigation bar */
+    .taskbar ul {
+      margin: 0 auto;
+    }
+
+  </style>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PKV53Q9T');</script>
+  <!-- End Google Tag Manager -->
+
+</head>
+<body>
+  <div class="taskbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="music.html">Music</a></li>
+      <li><a href="motion_graphics.html">Motion Graphics</a></li>
+      <li><a href="3d_visuals.html">3D Visuals</a></li>
+      <li><a href="marketing_content.html">Marketing Content</a></li> <!-- Removed "active" class -->
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="logo">
+      <img src="images/Haamiah (LOGO2).png" alt="Logo">
+    </div>
+  </div>
+
+  <div class="image-list">
+    <ul>
+      <li>
+        <a href="images/artwork/Interior_Design_3.png" target="_blank">
+          <img src="images/artwork/Interior_Design_3.png" alt="Interior Design 3">
+        </a>
+        <div class="image-description">Interior Design 3</div>
+      </li>
+      <li>
+        <a href="images/artwork/Interior_Design_2.png" target="_blank">
+          <img src="images/artwork/Interior_Design_2.png" alt="Interior Design 2">
+        </a>
+        <div class="image-description">Interior Design 2</div>
+      </li>
+      <li>
+        <a href="images/artwork/Watch-1.png" target="_blank">
+          <img src="images/artwork/Watch-1.png" alt="Watch 1">
+        </a>
+        <div class="image-description">Watch 1</div>
+      </li>
+      <li>
+        <a href="images/artwork/Pepsi.png" target="_blank">
+          <img src="images/artwork/Pepsi.png" alt="Product Advertisement">
+        </a>
+        <div class="image-description">Product Advertisement</div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKV53Q9T"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+</body>
+</html>
