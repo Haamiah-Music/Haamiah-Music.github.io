@@ -4,23 +4,27 @@
   <title>HAAMIAH - Motion Graphics</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Coda&display=swap');
-
     body {
       margin: 0;
       padding: 0;
+      font-family: 'Coda', sans-serif;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      position: relative;
-      font-family: 'Coda', sans-serif;
-      background-image: url("images/bg.png"); /* Replace with the actual path to your PNG image */
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center center;
-      background-attachment: fixed; /* Fix the background position */
+      overflow: hidden; /* Remove default scrollbar */
     }
-
+    
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    
     h1, h2, p {
       color: white;
       text-align: center;
@@ -32,7 +36,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      background-color: #00000080; /* Adjust the transparency and color as desired */
+      background-color: #00000080;
       z-index: 2;
       display: flex;
       justify-content: space-between;
@@ -64,64 +68,65 @@
     
     .taskbar ul li a:hover {
       color: aqua;
-      background-color: #000000; /* Adjust the background color on hover as desired */
+      background-color: #000000;
       transform: scale(1.1);
     }
     
     .taskbar ul li a.active {
       color: orange;
-      background-color: #000000; /* Adjust the background color when active as desired */
+      background-color: #000000;
     }
-
+    
+    .scroll-container {
+      margin-top: 120px;
+      width: 100%;
+      height: calc(100vh - 120px); /* Full viewport height minus taskbar */
+      overflow-y: auto; /* Enable scrolling */
+      overflow-x: hidden; /* Hide horizontal scrollbar */
+      scrollbar-width: none; /* Hide scrollbar for Firefox */
+      -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+    }
+    
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .scroll-container::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .content-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 40px;
+    }
+    
     .video-list {
-      margin-top: 60px; /* Adjust the margin-top value as desired */
-      max-height: calc(100vh - 120px); /* Adjust the maximum height to leave space for the taskbar and other content */
-      overflow-y: scroll;
-      width: 100%; /* Set the width to 100% */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      padding: 20px;
+      max-width: 800px;
+      width: 100%;
     }
     
-    .video-list::-webkit-scrollbar {
-      width: 0.5em; /* Adjust the width of the scrollbar as desired */
+    .video-item {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     
-    .video-list::-webkit-scrollbar-track {
-      background-color: transparent; /* Adjust the background color of the scrollbar track as desired */
-    }
-    
-    .video-list::-webkit-scrollbar-thumb {
-      background-color: white; /* Adjust the color of the scrollbar thumb as desired */
-    }
-
-    .video-list ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      text-align: center;
-      border: 2px solid rgba(255, 255, 255, 0); /* Add outline */
-      padding: 10px;
-      border-radius: 5px;
-    }
-    
-    .video-list h3 {
-      margin-bottom: 10px;
-      color: white; /* Set the title color to white */
-    }
-    
-    .video-list li {
-      margin: 10px;
-    }
-    
-    .video-list li a {
+    .video-item h3 {
       color: white;
-      text-decoration: none;
-      font-size: 16px;
-      transition: color 0.3s, transform 0.3s;
+      margin-bottom: 15px;
+      font-size: 20px;
     }
     
-    .video-list li a:hover {
-      text-decoration: underline;
-      color: aqua;
-      transform: scale(1.1);
+    .video-item iframe {
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      max-width: 100%;
     }
     
     .logo {
@@ -132,18 +137,41 @@
     .logo img {
       width: 40px;
       height: 40px;
-      margin-left: -70px; /* Adjust the margin as needed */
+      margin-left: -70px;
     }
     
     /* Center the navigation bar */
     .taskbar ul {
       margin: 0 auto;
     }
-
-    /* Rest of your CSS styles */
-
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .taskbar {
+        flex-direction: column;
+        position: sticky;
+        top: 0;
+      }
+    
+      .logo {
+        order: 2;
+        margin-top: 10px;
+      }
+    
+      .taskbar ul {
+        order: 1;
+      }
+      
+      .scroll-container {
+        height: calc(100vh - 160px); /* Adjust for mobile taskbar height */
+      }
+      
+      .video-item iframe {
+        width: 100%;
+        height: auto;
+      }
+    }
   </style>
-
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -151,7 +179,6 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-PKV53Q9T');</script>
   <!-- End Google Tag Manager -->
-
 </head>
 <body>
   <video id="bg-video" src="images/bgvideo.mp4" autoplay loop muted></video>
@@ -169,43 +196,47 @@
     </div>
   </div>
 
-  <div class="video-list">
-<!--    <h2>Embedded Video List</h2>  -->
-    <ul>
-      <li>
-        <h3>Product Advertisement Demo #1</h3>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/amM9ip4dgcw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </li>
-      <li>
-        <h3>Product Advertisement Demo #2</h3>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/j9PV8LbHJU0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </li>
-      <li>
-        <h3>Product Advertisement Demo #3</h3>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/PF9P9tkvsBI?si=DKFilB9ouWjO-0Af" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </li> 
-      <li>
-        <h3>Product Advertisement Demo #4</h3>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/2_8OGL3sDqo?si=wP5MVjMDuy7gos-Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </li>
-      <li>
-        <h3>Product Advertisement Demo #5</h3>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/vA12hhHaHLE?si=7PS3L6peLXVOLnhY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </li>      
-
-     
-
-
-      <li>
-        <h3>Purfiction</h3>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/40srO-RqFcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </li>
-      <li>
-        <h3>Sunset Chills</h3>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/JrIVAylvyQ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </li>
-    </ul>
+  <div class="scroll-container">
+    <div class="content-container">
+      <div class="video-list">
+        <div class="video-item">
+          <h3>Product Advertisement Demo #1</h3>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/amM9ip4dgcw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        
+        <div class="video-item">
+          <h3>Product Advertisement Demo #2</h3>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/j9PV8LbHJU0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        
+        <div class="video-item">
+          <h3>Product Advertisement Demo #3</h3>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/PF9P9tkvsBI?si=DKFilB9ouWjO-0Af" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        
+        <div class="video-item">
+          <h3>Product Advertisement Demo #4</h3>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/2_8OGL3sDqo?si=wP5MVjMDuy7gos-Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        
+        <div class="video-item">
+          <h3>Product Advertisement Demo #5</h3>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/vA12hhHaHLE?si=7PS3L6peLXVOLnhY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        
+        <div class="video-item">
+          <h3>Purfiction</h3>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/40srO-RqFcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        
+        <div class="video-item">
+          <h3>Sunset Chills</h3>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/JrIVAylvyQ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
   </div>
+  
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKV53Q9T"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
