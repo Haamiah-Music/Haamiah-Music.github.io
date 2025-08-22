@@ -97,7 +97,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px 0 60px; /* Added bottom padding to ensure last items are fully visible */
+      padding: 20px 0 80px; /* Increased bottom padding to ensure last items are fully visible */
     }
     
     .image-list {
@@ -120,7 +120,7 @@
       flex-direction: column;
       align-items: center;
       width: 400px;
-      margin-bottom: 20px; /* Added margin to ensure items don't get cut off */
+      margin-bottom: 30px; /* Increased margin to ensure items don't get cut off */
     }
     
     .image-item a {
@@ -171,6 +171,7 @@
         flex-direction: column;
         position: sticky;
         top: 0;
+        padding: 15px 10px; /* Increased padding for mobile */
       }
     
       .logo {
@@ -183,11 +184,33 @@
       }
       
       .scroll-container {
-        height: calc(100vh - 160px); /* Adjust for mobile taskbar height */
+        height: calc(100vh - 180px); /* Adjusted for mobile taskbar height with padding */
       }
       
       .image-item {
         width: 90%;
+      }
+    }
+    
+    /* Fix for vertical orientation on mobile */
+    @media (max-width: 768px) and (orientation: portrait) {
+      .scroll-container {
+        height: calc(100vh - 180px); /* Ensure full height in portrait mode */
+      }
+      
+      .content-container {
+        padding: 20px 0 100px; /* Extra bottom padding for portrait mode */
+      }
+    }
+    
+    /* Fix for horizontal orientation on mobile */
+    @media (max-width: 768px) and (orientation: landscape) {
+      .scroll-container {
+        height: calc(100vh - 140px); /* Adjust for landscape mode */
+      }
+      
+      .content-container {
+        padding: 20px 0 60px; /* Standard bottom padding for landscape mode */
       }
     }
     
