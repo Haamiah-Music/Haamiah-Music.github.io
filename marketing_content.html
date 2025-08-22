@@ -9,46 +9,41 @@
       margin: 0;
       padding: 0;
       font-family: 'Coda', sans-serif;
-      background-image: url("images/bg.png"); /* Replace with the actual path to your PNG image */
+      background-image: url("images/bg.png");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center center;
-      background-attachment: fixed; /* Fix the background position */
+      background-attachment: fixed;
+      color: white;
     }
 
     h1, h2, p {
       color: white;
       text-align: center;
-      z-index: 1;
     }
-    
+
+    /* === Taskbar === */
     .taskbar {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background-color: #00000080; /* Adjust the transparency and color as desired */
+      background-color: #00000080;
       z-index: 2;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px;
+      padding: 10px 20px;
     }
-    
+
     .taskbar ul {
       list-style: none;
       padding: 0;
       margin: 0;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 30px;
+      gap: 15px;
     }
-    
-    .taskbar ul li {
-      margin: 0 10px;
-    }
-    
+
     .taskbar ul li a {
       color: white;
       text-decoration: none;
@@ -56,79 +51,68 @@
       padding: 5px 10px;
       transition: color 0.3s, background-color 0.3s, transform 0.3s;
     }
-    
+
     .taskbar ul li a:hover {
       color: aqua;
-      background-color: #000000; /* Adjust the background color on hover as desired */
+      background-color: #000000;
       transform: scale(1.1);
-    }
-    
-    .taskbar ul li a.active {
-      color: orange;
-      background-color: #000000; /* Adjust the background color when active as desired */
     }
 
-    .image-list {
-      margin-top: 120px; /* Adjust the margin-top value to create space below the navigation bar and header */
-      display: flex;
-      justify-content: center;
-      overflow-y: auto; /* Add vertical scrollbar for content */
-      max-height: calc(100vh - 120px); /* Calculate max-height to fit content within viewport */
+    .taskbar ul li a.active {
+      color: orange;
+      background-color: #000000;
     }
-    
-    .image-list ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      text-align: center;
-    }
-    
-    .image-list h2 {
-      margin-bottom: 10px;
-    }
-    
-    .image-list li {
-      margin: 10px;
-      display: inline-block;
-    }
-    
-    .image-list li a {
-      display: block;
-      width: 400px; /* Adjust the image width as desired */
-      height: 300px; /* Adjust the image height as desired */
-      border: 2px solid white; /* Add border */
-      border-radius: 5px;
-      overflow: hidden;
-    }
-    
-    .image-list li a img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s;
-    }
-    
-    .image-list li a:hover img {
-      transform: scale(1.1);
-    }
-    
-    .logo {
-      display: flex;
-      align-items: center;
-    }
-    
+
     .logo img {
       width: 40px;
       height: 40px;
-      margin-left: -70px; /* Adjust the margin as needed */
-    }
-    
-    /* Center the navigation bar */
-    .taskbar ul {
-      margin: 0 auto;
     }
 
-    /* Rest of your CSS styles */
+    /* === Image Grid === */
+    .image-grid-container {
+      margin-top: 100px; /* Space below taskbar */
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      justify-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .image-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .image-item a {
+      width: 100%;
+      height: 300px;
+      border: 2px solid white;
+      border-radius: 8px;
+      overflow: hidden;
+      display: block;
+    }
+
+    .image-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .image-item a:hover img {
+      transform: scale(1.1);
+    }
+
+    .image-item p {
+      margin-top: 10px;
+      line-height: 1.5;
+      padding: 0 10px;
+    }
 
   </style>
 
@@ -156,45 +140,37 @@
     </div>
   </div>
 
-<!--  <h1>3D Visuals</h1>  -->
+  <!-- Image Grid -->
+  <div class="image-grid-container">
+    <div class="image-item">
+      <a href="images/artwork/HAAMIAH (BG).png" target="_blank">
+        <img src="images/artwork/HAAMIAH (BG).png" alt="HAAMIAH">
+      </a>
+      <p>This logo represents HAAMIAH, with a clean and modern design that reflects creativity and innovation.</p>
+    </div>
 
-  <div class="image-list">
-<!--    <h2>Local Images</h2>  -->
-    <ul>
+    <div class="image-item">
+      <a href="images/artwork/Felora Design (C).png" target="_blank">
+        <img src="images/artwork/Felora Design (C).png" alt="Felora Design">
+      </a>
+      <p>Felora Design's logo represents the brand's stylish and elegant clothing line, blending modern design with timeless sophistication. @ <a href="https://FeloraDesign.com" style="color:aqua;">FeloraDesign.com</a></p>
+    </div>
 
-<li>
-  <a href="images/artwork/HAAMIAH (BG).png" target="_blank">
-    <img src="images/artwork/HAAMIAH (BG).png" alt="HAAMIAH">
-  </a>
-  <p>This logo represents HAAMIAH, with a clean and modern design that reflects creativity and innovation.</p>
-</li>
+    <div class="image-item">
+      <a href="images/artwork/ready_remodel_mascot.png" target="_blank">
+        <img src="images/artwork/ready_remodel_mascot.png" alt="Ready Remodel">
+      </a>
+      <p>Ready Remodel features a unique mascot — a robot holding tools — symbolizing the company's expertise in connecting clients with skilled contractors for all their remodeling needs. This mascot embodies the efficient and innovative spirit of the brand. @ <a href="https://readyremodel.io/" style="color:aqua;">readyremodel.io</a></p>
+    </div>
 
-
-<li>
-  <a href="images/artwork/Felora Design (C).png" target="_blank">
-    <img src="images/artwork/Felora Design (C).png" alt="Felora Design">
-  </a>
-  <p>Felora Design's logo represents the brand's stylish and elegant clothing line, blending modern design with timeless sophistication. @ https://FeloraDesign.com</p>
-</li>   
-
-<li>
-  <a href="images/artwork/ready_remodel_mascot.png" target="_blank">
-    <img src="images/artwork/ready_remodel_mascot.png" alt="Ready Remodel">
-  </a>
-  <p>Ready Remodel features a unique mascot — a robot holding tools — symbolizing the company's expertise in connecting clients with skilled contractors for all their remodeling needs. This mascot embodies the efficient and innovative spirit of the brand. @ https://readyremodel.io/</p>
-</li> 
-
-<li>
-  <a href="images/artwork/Vous_logo (C).png" target="_blank">
-    <img src="images/artwork/Vous_logo (C).png" alt="Vous">
-  </a>
-  <p>Vous's logo embodies the bold and dynamic energy of this rap artist from Hollywood, California, known for his raw talent and captivating lyrics that resonate with his audience. @ https://www.instagram.com/vousnow/</p>
-</li>   
-
-  
-	
-    </ul>
+    <div class="image-item">
+      <a href="images/artwork/Vous_logo (C).png" target="_blank">
+        <img src="images/artwork/Vous_logo (C).png" alt="Vous">
+      </a>
+      <p>Vous's logo embodies the bold and dynamic energy of this rap artist from Hollywood, California, known for his raw talent and captivating lyrics that resonate with his audience. @ <a href="https://www.instagram.com/vousnow/" style="color:aqua;">Instagram</a></p>
+    </div>
   </div>
+
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKV53Q9T"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
