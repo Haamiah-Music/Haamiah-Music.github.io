@@ -38,6 +38,13 @@
       padding: 10px 20px;
     }
 
+    /* Center the navigation menu */
+    .taskbar-nav {
+      flex: 1;
+      display: flex;
+      justify-content: center; /* This centers the menu */
+    }
+
     .taskbar ul {
       list-style: none;
       padding: 0;
@@ -65,6 +72,11 @@
       background-color: #000000;
     }
 
+    /* Logo on the right */
+    .logo {
+      margin-left: auto; /* Pushes logo to the far right */
+    }
+
     .logo img {
       width: 40px;
       height: 40px;
@@ -90,20 +102,18 @@
       text-align: center;
     }
 
-    /* Removed border — clean look */
     .image-item a {
       width: 100%;
       height: 300px;
       border-radius: 8px;
       overflow: hidden;
       display: block;
-      /* Optional soft shadow for depth */
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
       transition: box-shadow 0.3s ease;
     }
 
     .image-item a:hover {
-      box-shadow: 0 6px 16px rgba(0, 255, 255, 0.5); /* Aqua glow on hover */
+      box-shadow: 0 6px 16px rgba(0, 255, 255, 0.5);
     }
 
     .image-item img {
@@ -124,9 +134,8 @@
       font-size: 15px;
     }
 
-    /* Style links inside descriptions */
     .image-item p a {
-      color: #00FFFF; /* Aqua */
+      color: #00FFFF;
       text-decoration: underline;
       transition: color 0.3s;
     }
@@ -147,14 +156,18 @@
 </head>
 <body>
   <div class="taskbar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="music.html">Music</a></li>
-      <li><a href="motion_graphics.html">Motion Graphics</a></li>
-      <li><a href="3d_visuals.html">3D Visuals</a></li>
-      <li><a href="marketing_content.html" class="active">Marketing Content</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+    <!-- Centered Navigation -->
+    <div class="taskbar-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="music.html">Music</a></li>
+        <li><a href="motion_graphics.html">Motion Graphics</a></li>
+        <li><a href="3d_visuals.html">3D Visuals</a></li>
+        <li><a href="marketing_content.html" class="active">Marketing Content</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <!-- Logo on Right -->
     <div class="logo">
       <img src="images/Haamiah (LOGO2).png" alt="Logo">
     </div>
@@ -173,14 +186,14 @@
       <a href="images/artwork/Felora Design (C).png" target="_blank">
         <img src="images/artwork/Felora Design (C).png" alt="Felora Design">
       </a>
-      <p>Felora Design's brand embodies elegance and empowerment for every woman. Their couture creations are a symphony of style, embracing all body types with grace and allure. @ <a href="https://FeloraDesign.com" target="_blank">FeloraDesign.com</a></p>
+      <p>Felora Design embodies elegance and empowerment for every woman. Their couture creations are a symphony of style, embracing all body types with grace and allure. @ <a href="https://FeloraDesign.com" target="_blank">FeloraDesign.com</a></p>
     </div>
 
     <div class="image-item">
       <a href="images/artwork/ready_remodel_mascot.png" target="_blank">
         <img src="images/artwork/ready_remodel_mascot.png" alt="Ready Remodel">
       </a>
-      <p>Ready Remodel connects homeowners with licensed local pros for roofing, windows, bathrooms, and more. Their robot mascot symbolizes efficiency and innovation, helping you solve remodeling problems quickly and easily. @ <a href="https://readyremodel.io/" target="_blank">readyremodel.io</a></p>
+      <p>Ready Remodel connects homeowners with licensed local pros for roofing, windows, gutters, bathroom remodels, and HVAC. Their robot mascot symbolizes efficiency and innovation, helping you solve remodeling problems quickly and easily. @ <a href="https://readyremodel.io/" target="_blank">readyremodel.io</a></p>
     </div>
 
     <div class="image-item">
