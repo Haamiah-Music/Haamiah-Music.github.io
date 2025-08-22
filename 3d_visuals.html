@@ -4,18 +4,26 @@
   <title>HAAMIAH - 3D Visuals</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Coda&display=swap');
-
     body {
       margin: 0;
       padding: 0;
       font-family: 'Coda', sans-serif;
-      background-image: url("images/bg.png"); /* Replace with the actual path to your PNG image */
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center center;
-      background-attachment: fixed; /* Fix the background position */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-
+    
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    
     h1, h2, p {
       color: white;
       text-align: center;
@@ -27,7 +35,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      background-color: #00000080; /* Adjust the transparency and color as desired */
+      background-color: #00000080;
       z-index: 2;
       display: flex;
       justify-content: space-between;
@@ -59,57 +67,70 @@
     
     .taskbar ul li a:hover {
       color: aqua;
-      background-color: #000000; /* Adjust the background color on hover as desired */
+      background-color: #000000;
       transform: scale(1.1);
     }
     
     .taskbar ul li a.active {
       color: orange;
-      background-color: #000000; /* Adjust the background color when active as desired */
-    }
-
-    .image-list {
-      margin-top: 120px; /* Adjust the margin-top value to create space below the navigation bar and header */
-      display: flex;
-      justify-content: center;
-      overflow-y: auto; /* Add vertical scrollbar for content */
-      max-height: calc(100vh - 120px); /* Calculate max-height to fit content within viewport */
+      background-color: #000000;
     }
     
-    .image-list ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      text-align: center;
+    .content-container {
+      margin-top: 120px;
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .image-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
+      max-width: 1200px;
+      width: 100%;
     }
     
     .image-list h2 {
-      margin-bottom: 10px;
+      width: 100%;
+      margin-bottom: 20px;
     }
     
-    .image-list li {
-      margin: 10px;
-      display: inline-block;
+    .image-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 400px;
     }
     
-    .image-list li a {
+    .image-item a {
       display: block;
-      width: 400px; /* Adjust the image width as desired */
-      height: 300px; /* Adjust the image height as desired */
-      border: 2px solid white; /* Add border */
+      width: 100%;
+      height: 300px;
+      border: 2px solid white;
       border-radius: 5px;
       overflow: hidden;
-    }
-    
-    .image-list li a img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
       transition: transform 0.3s;
     }
     
-    .image-list li a:hover img {
-      transform: scale(1.1);
+    .image-item a:hover {
+      transform: scale(1.05);
+    }
+    
+    .image-item a img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .image-item h3 {
+      color: white;
+      margin-top: 10px;
+      text-align: center;
     }
     
     .logo {
@@ -120,18 +141,36 @@
     .logo img {
       width: 40px;
       height: 40px;
-      margin-left: -70px; /* Adjust the margin as needed */
+      margin-left: -70px;
     }
     
     /* Center the navigation bar */
     .taskbar ul {
       margin: 0 auto;
     }
-
-    /* Rest of your CSS styles */
-
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .taskbar {
+        flex-direction: column;
+        position: sticky;
+        top: 0;
+      }
+    
+      .logo {
+        order: 2;
+        margin-top: 10px;
+      }
+    
+      .taskbar ul {
+        order: 1;
+      }
+      
+      .image-item {
+        width: 90%;
+      }
+    }
   </style>
-
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -139,7 +178,6 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-PKV53Q9T');</script>
   <!-- End Google Tag Manager -->
-
 </head>
 <body>
   <video id="bg-video" src="images/bgvideo.mp4" autoplay loop muted></video>
@@ -157,127 +195,136 @@
     </div>
   </div>
 
-<!--  <h1>3D Visuals</h1>  -->
-
-  <div class="image-list">
-<!--    <h2>Local Images</h2>  -->
-    <ul>
-
-
-      <li>
+  <div class="content-container">
+    <div class="image-list">
+      <div class="image-item">
         <a href="images/artwork/jellar-2025.png" target="_blank">
           <img src="images/artwork/jellar-2025.png" alt="Fantasy Tree">
         </a>
         <h3>Jellar The Sunken Guitar</h3>
-      </li>
-		
-
-      <li>
+      </div>
+      
+      <div class="image-item">
         <a href="images/artwork/rolex-2025.png" target="_blank">
           <img src="images/artwork/rolex-2025.png" alt="Watch 1">
         </a>
         <h3>Rolex Watch</h3>
-      </li>
-
-      <li>
+      </div>
+      
+      <div class="image-item">
         <a href="images/artwork/id-k-2025.png" target="_blank">
           <img src="images/artwork/id-k-2025.png" alt="Watch 1">
         </a>
         <h3>Interior Design 3</h3>
-      </li>
-      <li>
+      </div>
+      
+      <div class="image-item">
         <a href="images/artwork/id-l-2025.png" target="_blank">
           <img src="images/artwork/id-l-2025.png" alt="Watch 1">
         </a>
         <h3>Interior Design 2</h3>
-      </li>
-      <li>
+      </div>
+      
+      <div class="image-item">
         <a href="images/artwork/id-r-2025.png" target="_blank">
           <img src="images/artwork/id-r-2025.png" alt="Watch 1">
         </a>
         <h3>Interior Design 1</h3>
-      </li>	    
-      <li>
+      </div>
+      
+      <div class="image-item">
         <a href="images/artwork/casio-1-2025.png" target="_blank">
           <img src="images/artwork/casio-1-2025.png" alt="Watch 1">
         </a>
         <h3>Watch 1</h3>
-      </li>
-      <li>
+      </div>
+      
+      <div class="image-item">
         <a href="images/artwork/casio-2-2025.png" target="_blank">
           <img src="images/artwork/casio-2-2025.png" alt="Watch 2">
         </a>
         <h3>Watch 2</h3>
-      </li>
-      <li>
+      </div>
+      
+      <div class="image-item">
         <a href="images/artwork/pepsi-2025.png" target="_blank">
           <img src="images/artwork/pepsi-2025.png" alt="Watch 2">
         </a>
         <h3>Product Advertisement</h3>
-      </li>	    
-      <li>
+      </div>
+      
+      <div class="image-item">
         <a href="images/artwork/speedometer-2025.png" target="_blank">
           <img src="images/artwork/speedometer-2025.png" alt="Car Speedometer">
         </a>
         <h3>Car Speedometer</h3>
-      </li>
-      <li>
+      </div>
+      
+      <div class="image-item">
         <a href="images/artwork/glasses-1-2025.png" target="_blank">
           <img src="images/artwork/glasses-1-2025.png" alt="Glasses 1">
         </a>
         <h3>Glasses 1</h3>
-      </li>
-      <li>
+      </div>
+      
+      <div class="image-item">
         <a href="images/artwork/glasses-2-2025.png" target="_blank">
           <img src="images/artwork/glasses-2-2025.png" alt="Glasses 2">
         </a>
         <h3>Glasses 2</h3>
-      </li> 
-      <li>
+      </div>
+      
+      <div class="image-item">
         <a href="images/artwork/shampoo-2025.png" target="_blank">
           <img src="images/artwork/shampoo-2025.png" alt="Cosmetic Product">
         </a>
         <h3>Cosmetic Product</h3>
-      </li>
-      <li>
+      </div>
+      
+      <div class="image-item">
         <a href="images/artwork/sb-2025.png" target="_blank">
           <img src="images/artwork/sb-2025.png" alt="Original Fantasy Work">
         </a>
         <h3>Original Fantasy Work</h3>
-      </li>
-      <li>
+      </div>
+      
+      <div class="image-item">
         <a href="images/artwork/breakfast-2025.png" target="_blank">
           <img src="images/artwork/breakfast-2025.png" alt="Food">
         </a>
         <h3>Food</h3>
-      </li>
-      <li>
+      </div>
+      
+      <div class="image-item">
         <a href="images/artwork/apple-bowl-2025.png" target="_blank">
           <img src="images/artwork/apple-bowl-2025.png" alt="Green Apples">
         </a>
         <h3>Green Apples</h3>
-      </li>
-      <li>
+      </div>
+      
+      <div class="image-item">
         <a href="images/artwork/apple-2025.png" target="_blank">
           <img src="images/artwork/apple-2025.png" alt="Red Apple">
         </a>
         <h3>Red Apple</h3>
-      </li>
-      <li>
+      </div>
+      
+      <div class="image-item">
         <a href="images/artwork/orange-2025.png" target="_blank">
           <img src="images/artwork/orange-2025.png" alt="Orange">
         </a>
         <h3>Orange</h3>
-      </li>
-      <li>
+      </div>
+      
+      <div class="image-item">
         <a href="images/artwork/banana-2025.png" target="_blank">
           <img src="images/artwork/banana-2025.png" alt="Banana">
         </a>
         <h3>Banana</h3>
-      </li>
-	
-    </ul>
+      </div>
+    </div>
   </div>
+  
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKV53Q9T"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
