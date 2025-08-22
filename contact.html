@@ -11,7 +11,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: 100vh;
       overflow-x: hidden;
     }
@@ -89,7 +89,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 100px;
+      padding-top: 80px; /* Reduced from 100px */
       padding-bottom: 40px;
       width: 100%;
       max-width: 800px;
@@ -239,12 +239,13 @@
       }
       
       .content {
-        padding-top: 120px;
+        padding-top: 100px; /* Reduced from 120px */
       }
       
       .contact-card {
         padding: 30px 20px;
         width: 90%;
+        margin-top: 20px; /* Added to push content higher */
       }
       
       .profile-img {
@@ -273,11 +274,12 @@
     
     @media (max-width: 480px) {
       .content {
-        padding-top: 140px;
+        padding-top: 90px; /* Reduced from 140px */
       }
       
       .contact-card {
         padding: 25px 15px;
+        margin-top: 10px; /* Added to push content even higher */
       }
       
       .profile-img {
