@@ -38,11 +38,10 @@
       padding: 10px 20px;
     }
 
-    /* Center the navigation menu */
     .taskbar-nav {
       flex: 1;
       display: flex;
-      justify-content: center; /* This centers the menu */
+      justify-content: center;
     }
 
     .taskbar ul {
@@ -72,9 +71,8 @@
       background-color: #000000;
     }
 
-    /* Logo on the right */
     .logo {
-      margin-left: auto; /* Pushes logo to the far right */
+      margin-left: auto;
     }
 
     .logo img {
@@ -102,29 +100,31 @@
       text-align: center;
     }
 
+    /* Remove all effects from the link container — just a clean block */
     .image-item a {
       width: 100%;
       height: 300px;
       border-radius: 8px;
       overflow: hidden;
       display: block;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-      transition: box-shadow 0.3s ease;
+      /* No border, no shadow — completely clean */
     }
 
-    .image-item a:hover {
-      box-shadow: 0 6px 16px rgba(0, 255, 255, 0.5);
-    }
-
+    /* Apply subtle shadow and transition directly to the image */
     .image-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.3s ease;
+      border-radius: 8px;
+      transition: all 0.4s ease;
+      /* Optional: soft shadow on image only */
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     }
 
+    /* Zoom + enhanced glow on hover (only on image) */
     .image-item a:hover img {
       transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 255, 255, 0.4); /* Soft aqua glow */
     }
 
     .image-item p {
@@ -156,7 +156,6 @@
 </head>
 <body>
   <div class="taskbar">
-    <!-- Centered Navigation -->
     <div class="taskbar-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -167,7 +166,6 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
-    <!-- Logo on Right -->
     <div class="logo">
       <img src="images/Haamiah (LOGO2).png" alt="Logo">
     </div>
@@ -186,14 +184,14 @@
       <a href="images/artwork/Felora Design (C).png" target="_blank">
         <img src="images/artwork/Felora Design (C).png" alt="Felora Design">
       </a>
-      <p>Felora Design embodies elegance and empowerment for every woman. Their couture creations are a symphony of style, embracing all body types with grace and allure. @ <a href="https://FeloraDesign.com" target="_blank">FeloraDesign.com</a></p>
+      <p>Elegance Unveiled, Empowering Every Curve: Felora Design. Couture Symphony: Felora Design, where threads intertwine to compose a harmonious masterpiece, embracing and empowering every woman's essence. From graceful slender frames to enigmatic curves, our bespoke creations are a symphony of elegance, adorning each lady with unparalleled allure and grace. @ <a href="https://FeloraDesign.com" target="_blank">FeloraDesign.com</a></p>
     </div>
 
     <div class="image-item">
       <a href="images/artwork/ready_remodel_mascot.png" target="_blank">
         <img src="images/artwork/ready_remodel_mascot.png" alt="Ready Remodel">
       </a>
-      <p>Ready Remodel connects homeowners with licensed local pros for roofing, windows, gutters, bathroom remodels, and HVAC. Their robot mascot symbolizes efficiency and innovation, helping you solve remodeling problems quickly and easily. @ <a href="https://readyremodel.io/" target="_blank">readyremodel.io</a></p>
+      <p>Ready Remodel connects you with licensed local pros for roofing, windows, gutters, bathroom remodels, and HVAC. Expert Review, No obligation, Quick and easy. Solve your problem quickly and efficiently. @ <a href="https://readyremodel.io/" target="_blank">readyremodel.io</a></p>
     </div>
 
     <div class="image-item">
