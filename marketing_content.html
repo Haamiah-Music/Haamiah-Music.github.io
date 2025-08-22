@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>HAAMIAH - Marketing Content</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Coda&display=swap');
@@ -16,15 +14,15 @@
       background-size: cover;
       background-position: center center;
       background-attachment: fixed;
-      color: white;
     }
 
     h1, h2, p {
       color: white;
       text-align: center;
+      z-index: 1;
     }
-
-    /* === Taskbar === */
+    
+    /* === Taskbar (Unchanged from your original) === */
     .taskbar {
       position: fixed;
       top: 0;
@@ -35,23 +33,23 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 20px;
+      padding: 10px;
     }
-
-    .taskbar-nav {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-
+    
     .taskbar ul {
       list-style: none;
       padding: 0;
       margin: 0;
       display: flex;
-      gap: 15px;
+      justify-content: center;
+      align-items: center;
+      height: 30px;
     }
-
+    
+    .taskbar ul li {
+      margin: 0 10px;
+    }
+    
     .taskbar ul li a {
       color: white;
       text-decoration: none;
@@ -59,40 +57,47 @@
       padding: 5px 10px;
       transition: color 0.3s, background-color 0.3s, transform 0.3s;
     }
-
+    
     .taskbar ul li a:hover {
       color: aqua;
       background-color: #000000;
       transform: scale(1.1);
     }
-
+    
     .taskbar ul li a.active {
       color: orange;
       background-color: #000000;
     }
 
     .logo {
-      margin-left: auto;
+      display: flex;
+      align-items: center;
     }
-
+    
     .logo img {
       width: 40px;
       height: 40px;
+      margin-left: -70px; /* Keeps logo exactly as you had it */
     }
 
-    /* === Image Grid Container === */
+    /* Center the navigation bar */
+    .taskbar ul {
+      margin: 0 auto;
+    }
+
+    /* === Fixed Image Grid (Replaces old .image-list) === */
     .image-grid-container {
-      margin-top: 100px;
+      margin-top: 120px; /* Matches space below taskbar */
       padding: 20px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 25px;
       justify-items: center;
-      min-height: 100vh;
+      max-width: 100%;
       box-sizing: border-box;
     }
 
-    .image-item {
+    .grid-item {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -100,47 +105,40 @@
       text-align: center;
     }
 
-    /* Remove all effects from the link container — just a clean block */
-    .image-item a {
+    .grid-item a {
       width: 100%;
       height: 300px;
       border-radius: 8px;
       overflow: hidden;
       display: block;
-      /* No border, no shadow — completely clean */
+      /* No border, no shadow — clean container */
     }
 
-    /* Apply subtle shadow and transition directly to the image */
-    .image-item img {
+    .grid-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 8px;
-      transition: all 0.4s ease;
-      /* Optional: soft shadow on image only */
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      transition: transform 0.4s ease;
     }
 
-    /* Zoom + enhanced glow on hover (only on image) */
-    .image-item a:hover img {
+    .grid-item a:hover img {
       transform: scale(1.1);
-      box-shadow: 0 8px 20px rgba(0, 255, 255, 0.4); /* Soft aqua glow */
     }
 
-    .image-item p {
+    .grid-item p {
       margin-top: 12px;
       line-height: 1.6;
       padding: 0 10px;
       font-size: 15px;
     }
 
-    .image-item p a {
+    .grid-item p a {
       color: #00FFFF;
       text-decoration: underline;
       transition: color 0.3s;
     }
 
-    .image-item p a:hover {
+    .grid-item p a:hover {
       color: white;
     }
   </style>
@@ -155,46 +153,45 @@
 
 </head>
 <body>
+  <!-- === Taskbar (Exactly as you provided) === -->
   <div class="taskbar">
-    <div class="taskbar-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="music.html">Music</a></li>
-        <li><a href="motion_graphics.html">Motion Graphics</a></li>
-        <li><a href="3d_visuals.html">3D Visuals</a></li>
-        <li><a href="marketing_content.html" class="active">Marketing Content</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="music.html">Music</a></li>
+      <li><a href="motion_graphics.html">Motion Graphics</a></li>
+      <li><a href="3d_visuals.html">3D Visuals</a></li>
+      <li><a href="marketing_content.html" class="active">Marketing Content</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
     <div class="logo">
       <img src="images/Haamiah (LOGO2).png" alt="Logo">
     </div>
   </div>
 
-  <!-- Image Grid -->
+  <!-- === Fixed Image Grid (Replaces .image-list) === -->
   <div class="image-grid-container">
-    <div class="image-item">
+    <div class="grid-item">
       <a href="images/artwork/HAAMIAH (BG).png" target="_blank">
         <img src="images/artwork/HAAMIAH (BG).png" alt="HAAMIAH">
       </a>
       <p>This logo represents HAAMIAH, with a clean and modern design that reflects creativity and innovation.</p>
     </div>
 
-    <div class="image-item">
+    <div class="grid-item">
       <a href="images/artwork/Felora Design (C).png" target="_blank">
         <img src="images/artwork/Felora Design (C).png" alt="Felora Design">
       </a>
       <p>Elegance Unveiled, Empowering Every Curve: Felora Design. Couture Symphony: Felora Design, where threads intertwine to compose a harmonious masterpiece, embracing and empowering every woman's essence. From graceful slender frames to enigmatic curves, our bespoke creations are a symphony of elegance, adorning each lady with unparalleled allure and grace. @ <a href="https://FeloraDesign.com" target="_blank">FeloraDesign.com</a></p>
     </div>
 
-    <div class="image-item">
+    <div class="grid-item">
       <a href="images/artwork/ready_remodel_mascot.png" target="_blank">
         <img src="images/artwork/ready_remodel_mascot.png" alt="Ready Remodel">
       </a>
       <p>Ready Remodel connects you with licensed local pros for roofing, windows, gutters, bathroom remodels, and HVAC. Expert Review, No obligation, Quick and easy. Solve your problem quickly and efficiently. @ <a href="https://readyremodel.io/" target="_blank">readyremodel.io</a></p>
     </div>
 
-    <div class="image-item">
+    <div class="grid-item">
       <a href="images/artwork/Vous_logo (C).png" target="_blank">
         <img src="images/artwork/Vous_logo (C).png" alt="Vous">
       </a>
