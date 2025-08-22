@@ -12,6 +12,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      overflow: hidden; /* Remove default scrollbar */
     }
     
     #bg-video {
@@ -76,13 +77,27 @@
       background-color: #000000;
     }
     
-    .content-container {
+    .scroll-container {
       margin-top: 120px;
       width: 100%;
-      flex: 1;
+      height: calc(100vh - 120px); /* Full viewport height minus taskbar */
+      overflow-y: auto; /* Enable scrolling */
+      overflow-x: hidden; /* Hide horizontal scrollbar */
+      scrollbar-width: none; /* Hide scrollbar for Firefox */
+      -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+    }
+    
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .scroll-container::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .content-container {
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding-bottom: 40px;
     }
     
     .image-list {
@@ -169,6 +184,10 @@
       .image-item {
         width: 90%;
       }
+      
+      .scroll-container {
+        height: calc(100vh - 160px); /* Adjust for mobile taskbar height */
+      }
     }
   </style>
   <!-- Google Tag Manager -->
@@ -194,133 +213,135 @@
       <img src="images/Haamiah (LOGO2).png" alt="Logo">
     </div>
   </div>
-
-  <div class="content-container">
-    <div class="image-list">
-      <div class="image-item">
-        <a href="images/artwork/jellar-2025.png" target="_blank">
-          <img src="images/artwork/jellar-2025.png" alt="Fantasy Tree">
-        </a>
-        <h3>Jellar The Sunken Guitar</h3>
-      </div>
-      
-      <div class="image-item">
-        <a href="images/artwork/rolex-2025.png" target="_blank">
-          <img src="images/artwork/rolex-2025.png" alt="Watch 1">
-        </a>
-        <h3>Rolex Watch</h3>
-      </div>
-      
-      <div class="image-item">
-        <a href="images/artwork/id-k-2025.png" target="_blank">
-          <img src="images/artwork/id-k-2025.png" alt="Watch 1">
-        </a>
-        <h3>Interior Design 3</h3>
-      </div>
-      
-      <div class="image-item">
-        <a href="images/artwork/id-l-2025.png" target="_blank">
-          <img src="images/artwork/id-l-2025.png" alt="Watch 1">
-        </a>
-        <h3>Interior Design 2</h3>
-      </div>
-      
-      <div class="image-item">
-        <a href="images/artwork/id-r-2025.png" target="_blank">
-          <img src="images/artwork/id-r-2025.png" alt="Watch 1">
-        </a>
-        <h3>Interior Design 1</h3>
-      </div>
-      
-      <div class="image-item">
-        <a href="images/artwork/casio-1-2025.png" target="_blank">
-          <img src="images/artwork/casio-1-2025.png" alt="Watch 1">
-        </a>
-        <h3>Watch 1</h3>
-      </div>
-      
-      <div class="image-item">
-        <a href="images/artwork/casio-2-2025.png" target="_blank">
-          <img src="images/artwork/casio-2-2025.png" alt="Watch 2">
-        </a>
-        <h3>Watch 2</h3>
-      </div>
-      
-      <div class="image-item">
-        <a href="images/artwork/pepsi-2025.png" target="_blank">
-          <img src="images/artwork/pepsi-2025.png" alt="Watch 2">
-        </a>
-        <h3>Product Advertisement</h3>
-      </div>
-      
-      <div class="image-item">
-        <a href="images/artwork/speedometer-2025.png" target="_blank">
-          <img src="images/artwork/speedometer-2025.png" alt="Car Speedometer">
-        </a>
-        <h3>Car Speedometer</h3>
-      </div>
-      
-      <div class="image-item">
-        <a href="images/artwork/glasses-1-2025.png" target="_blank">
-          <img src="images/artwork/glasses-1-2025.png" alt="Glasses 1">
-        </a>
-        <h3>Glasses 1</h3>
-      </div>
-      
-      <div class="image-item">
-        <a href="images/artwork/glasses-2-2025.png" target="_blank">
-          <img src="images/artwork/glasses-2-2025.png" alt="Glasses 2">
-        </a>
-        <h3>Glasses 2</h3>
-      </div>
-      
-      <div class="image-item">
-        <a href="images/artwork/shampoo-2025.png" target="_blank">
-          <img src="images/artwork/shampoo-2025.png" alt="Cosmetic Product">
-        </a>
-        <h3>Cosmetic Product</h3>
-      </div>
-      
-      <div class="image-item">
-        <a href="images/artwork/sb-2025.png" target="_blank">
-          <img src="images/artwork/sb-2025.png" alt="Original Fantasy Work">
-        </a>
-        <h3>Original Fantasy Work</h3>
-      </div>
-      
-      <div class="image-item">
-        <a href="images/artwork/breakfast-2025.png" target="_blank">
-          <img src="images/artwork/breakfast-2025.png" alt="Food">
-        </a>
-        <h3>Food</h3>
-      </div>
-      
-      <div class="image-item">
-        <a href="images/artwork/apple-bowl-2025.png" target="_blank">
-          <img src="images/artwork/apple-bowl-2025.png" alt="Green Apples">
-        </a>
-        <h3>Green Apples</h3>
-      </div>
-      
-      <div class="image-item">
-        <a href="images/artwork/apple-2025.png" target="_blank">
-          <img src="images/artwork/apple-2025.png" alt="Red Apple">
-        </a>
-        <h3>Red Apple</h3>
-      </div>
-      
-      <div class="image-item">
-        <a href="images/artwork/orange-2025.png" target="_blank">
-          <img src="images/artwork/orange-2025.png" alt="Orange">
-        </a>
-        <h3>Orange</h3>
-      </div>
-      
-      <div class="image-item">
-        <a href="images/artwork/banana-2025.png" target="_blank">
-          <img src="images/artwork/banana-2025.png" alt="Banana">
-        </a>
-        <h3>Banana</h3>
+  
+  <div class="scroll-container">
+    <div class="content-container">
+      <div class="image-list">
+        <div class="image-item">
+          <a href="images/artwork/jellar-2025.png" target="_blank">
+            <img src="images/artwork/jellar-2025.png" alt="Fantasy Tree">
+          </a>
+          <h3>Jellar The Sunken Guitar</h3>
+        </div>
+        
+        <div class="image-item">
+          <a href="images/artwork/rolex-2025.png" target="_blank">
+            <img src="images/artwork/rolex-2025.png" alt="Watch 1">
+          </a>
+          <h3>Rolex Watch</h3>
+        </div>
+        
+        <div class="image-item">
+          <a href="images/artwork/id-k-2025.png" target="_blank">
+            <img src="images/artwork/id-k-2025.png" alt="Watch 1">
+          </a>
+          <h3>Interior Design 3</h3>
+        </div>
+        
+        <div class="image-item">
+          <a href="images/artwork/id-l-2025.png" target="_blank">
+            <img src="images/artwork/id-l-2025.png" alt="Watch 1">
+          </a>
+          <h3>Interior Design 2</h3>
+        </div>
+        
+        <div class="image-item">
+          <a href="images/artwork/id-r-2025.png" target="_blank">
+            <img src="images/artwork/id-r-2025.png" alt="Watch 1">
+          </a>
+          <h3>Interior Design 1</h3>
+        </div>
+        
+        <div class="image-item">
+          <a href="images/artwork/casio-1-2025.png" target="_blank">
+            <img src="images/artwork/casio-1-2025.png" alt="Watch 1">
+          </a>
+          <h3>Watch 1</h3>
+        </div>
+        
+        <div class="image-item">
+          <a href="images/artwork/casio-2-2025.png" target="_blank">
+            <img src="images/artwork/casio-2-2025.png" alt="Watch 2">
+          </a>
+          <h3>Watch 2</h3>
+        </div>
+        
+        <div class="image-item">
+          <a href="images/artwork/pepsi-2025.png" target="_blank">
+            <img src="images/artwork/pepsi-2025.png" alt="Watch 2">
+          </a>
+          <h3>Product Advertisement</h3>
+        </div>
+        
+        <div class="image-item">
+          <a href="images/artwork/speedometer-2025.png" target="_blank">
+            <img src="images/artwork/speedometer-2025.png" alt="Car Speedometer">
+          </a>
+          <h3>Car Speedometer</h3>
+        </div>
+        
+        <div class="image-item">
+          <a href="images/artwork/glasses-1-2025.png" target="_blank">
+            <img src="images/artwork/glasses-1-2025.png" alt="Glasses 1">
+          </a>
+          <h3>Glasses 1</h3>
+        </div>
+        
+        <div class="image-item">
+          <a href="images/artwork/glasses-2-2025.png" target="_blank">
+            <img src="images/artwork/glasses-2-2025.png" alt="Glasses 2">
+          </a>
+          <h3>Glasses 2</h3>
+        </div>
+        
+        <div class="image-item">
+          <a href="images/artwork/shampoo-2025.png" target="_blank">
+            <img src="images/artwork/shampoo-2025.png" alt="Cosmetic Product">
+          </a>
+          <h3>Cosmetic Product</h3>
+        </div>
+        
+        <div class="image-item">
+          <a href="images/artwork/sb-2025.png" target="_blank">
+            <img src="images/artwork/sb-2025.png" alt="Original Fantasy Work">
+          </a>
+          <h3>Original Fantasy Work</h3>
+        </div>
+        
+        <div class="image-item">
+          <a href="images/artwork/breakfast-2025.png" target="_blank">
+            <img src="images/artwork/breakfast-2025.png" alt="Food">
+          </a>
+          <h3>Food</h3>
+        </div>
+        
+        <div class="image-item">
+          <a href="images/artwork/apple-bowl-2025.png" target="_blank">
+            <img src="images/artwork/apple-bowl-2025.png" alt="Green Apples">
+          </a>
+          <h3>Green Apples</h3>
+        </div>
+        
+        <div class="image-item">
+          <a href="images/artwork/apple-2025.png" target="_blank">
+            <img src="images/artwork/apple-2025.png" alt="Red Apple">
+          </a>
+          <h3>Red Apple</h3>
+        </div>
+        
+        <div class="image-item">
+          <a href="images/artwork/orange-2025.png" target="_blank">
+            <img src="images/artwork/orange-2025.png" alt="Orange">
+          </a>
+          <h3>Orange</h3>
+        </div>
+        
+        <div class="image-item">
+          <a href="images/artwork/banana-2025.png" target="_blank">
+            <img src="images/artwork/banana-2025.png" alt="Banana">
+          </a>
+          <h3>Banana</h3>
+        </div>
       </div>
     </div>
   </div>
