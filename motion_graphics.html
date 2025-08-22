@@ -36,12 +36,14 @@
       top: 0;
       left: 0;
       width: 100%;
-      background-color: #00000080;
-      z-index: 2;
+      background-color: rgba(0, 0, 0, 0.7); /* Transparent dark background */
+      backdrop-filter: blur(5px); /* Added blur for a modern look */
+      z-index: 100; /* Increased z-index to ensure it's always on top */
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Added shadow for depth */
     }
     
     .taskbar ul {
@@ -62,19 +64,24 @@
       color: white;
       text-decoration: none;
       font-size: 18px;
-      padding: 5px 10px;
-      transition: color 0.3s, background-color 0.3s, transform 0.3s;
+      padding: 8px 15px;
+      border-radius: 25px; /* More rounded corners for button look */
+      background: linear-gradient(135deg, #FF8C00, #FF4500); /* Vibrant orange like music player scrollbar */
+      box-shadow: 0 4px 8px rgba(255, 140, 0, 0.3); /* Orange shadow for depth */
+      transition: all 0.3s ease;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Text shadow for better visibility */
+      display: inline-block; /* To ensure proper button styling */
     }
     
     .taskbar ul li a:hover {
-      color: aqua;
-      background-color: #000000;
-      transform: scale(1.1);
+      background: linear-gradient(135deg, #FFDAB9, #FFA07A); /* Peachy gradient for hover */
+      box-shadow: 0 4px 12px rgba(255, 218, 185, 0.5); /* Peach shadow on hover */
+      transform: translateY(-2px); /* Lift effect on hover */
     }
     
     .taskbar ul li a.active {
-      color: orange;
-      background-color: #000000;
+      background: linear-gradient(135deg, aqua, #001f3f); /* Aqua and dark navy blue for active */
+      box-shadow: 0 4px 8px rgba(0, 255, 255, 0.4); /* Aqua shadow for active */
     }
     
     .main-container {
@@ -120,6 +127,18 @@
       flex-direction: column;
       align-items: center;
       margin-bottom: 20px;
+      animation: fadeIn 0.8s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     
     .video-item h3 {
@@ -156,7 +175,6 @@
         flex-direction: column;
         position: sticky;
         top: 0;
-        padding: 15px 10px;
       }
     
       .logo {
@@ -166,6 +184,17 @@
     
       .taskbar ul {
         order: 1;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .taskbar ul li {
+        margin: 5px;
+      }
+      
+      .taskbar ul li a {
+        font-size: 16px;
+        padding: 6px 12px;
       }
       
       .main-container {
@@ -181,7 +210,7 @@
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  j=d.createElement(s),dl=l!='dataLayer'?'&l'+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-PKV53Q9T');</script>
   <!-- End Google Tag Manager -->
@@ -201,7 +230,6 @@
       <img src="images/Haamiah (LOGO2).png" alt="Logo">
     </div>
   </div>
-
   <div class="main-container">
     <div class="content-container">
       <div class="video-list">
