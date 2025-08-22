@@ -4,7 +4,6 @@
   <title>HAAMIAH - Bio</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Coda&display=swap');
-
     body {
       margin: 0;
       padding: 0;
@@ -12,8 +11,10 @@
       flex-direction: column;
       align-items: center;
       font-family: 'Coda', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
-
+    
     #bg-video {
       position: fixed;
       top: 0;
@@ -21,15 +22,15 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 1; /* Adjust the opacity value as desired */
+      opacity: 1;
       z-index: -1;
     }
-
+    
     h1, h2, p {
       color: white;
       text-align: center;
       z-index: 1;
-      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Add black outline */
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     }
     
     .taskbar {
@@ -37,8 +38,8 @@
       top: 0;
       left: 0;
       width: 100%;
-      background-color: #00000080; /* Adjust the transparency and color as desired */
-      z-index: 2;
+      background-color: #00000080;
+      z-index: 100; /* Increased z-index to ensure it's always on top */
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -69,75 +70,242 @@
     
     .taskbar ul li a:hover {
       color: aqua;
-      background-color: #000000; /* Adjust the background color on hover as desired */
+      background-color: #000000;
       transform: scale(1.1);
     }
     
     .taskbar ul li a.active {
       color: orange;
-      background-color: #000000; /* Adjust the background color when active as desired */
+      background-color: #000000;
     }
     
-.bio {
-  margin-top: 10vh; /* Use viewport height for top margin, adjust as needed */
-  margin-bottom: 50px; /* Add bottom margin */
-  padding: 20px;
-  background-color: rgba(13, 24, 31, 0.8); /* Dark navy blue background with opacity */
-  border: 2px solid #0d181f; /* Add a frame border */
-  border-radius: 10px; /* Add border radius for rounded corners */
-  max-width: 80%; /* Adjust the width of the bio container */
-  position: relative; /* Use relative positioning */
-  z-index: 1; /* Increase z-index to appear above the navigation bar */
-  color: #FFA500; /* Light orange text color */
-  line-height: 1.6; /* Increase line height for better readability */
-}
-
-/* Media queries for different screen sizes */
-@media screen and (max-width: 768px) {
-  .bio {
-    font-size: 16px; /* Decrease font size for smaller screens */
-    margin-top: 10vh; /* Adjust the top margin */
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .bio {
-    font-size: 14px; /* Further decrease font size for smaller screens (e.g., mobile phones) */
-    margin-top: 10vh; /* Adjust the top margin */
-  }
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo img {
-  width: 40px;
-  height: 40px;
-  margin-left: -70px; /* Adjust the margin as needed */
-}
-
-/* Center the navigation bar */
-.taskbar ul {
-  margin: 0 auto;
-}
-
-
+    .main-container {
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 80px; /* Space for the fixed taskbar */
+      padding-bottom: 40px;
+      box-sizing: border-box;
+      z-index: 1;
+      overflow-y: auto; /* Enable scrolling */
+      overflow-x: hidden; /* Hide horizontal scrollbar */
+    }
+    
+    .bio {
+      margin-top: 10vh;
+      margin-bottom: 50px;
+      padding: 40px;
+      background-color: rgba(13, 24, 31, 0.85);
+      border: 2px solid #0d181f;
+      border-radius: 15px;
+      max-width: 800px;
+      width: 90%;
+      position: relative;
+      z-index: 1;
+      line-height: 1.8;
+      animation: fadeIn 1s ease-out;
+      box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+      /* Added to prevent bio from going behind navigation bar */
+      scroll-margin-top: 80px; /* Creates space equal to navigation bar height */
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .bio h2 {
+      color: #FFA500;
+      font-size: 2rem;
+      margin-bottom: 25px;
+      line-height: 1.4;
+    }
+    
+    .bio p {
+      color: white;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      text-align: left;
+      max-width: 100%;
+    }
+    
+    .bio p:last-child {
+      margin-bottom: 0;
+    }
+    
+    .highlight {
+      color: aqua; /* Changed from #00d2ff to aqua */
+      font-weight: bold;
+    }
+    
+    .get-in-touch {
+      color: aqua; /* Changed from #00d2ff to aqua */
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: 30px 0 15px;
+      text-decoration: none;
+      text-align: center; /* Added to center the text */
+    }
+    
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .btn-instagram {
+      background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: white;
+    }
+    
+    .btn-instagram:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(225, 48, 108, 0.4);
+    }
+    
+    .btn-linkedin {
+      background: linear-gradient(135deg, #0077b5, #005885);
+      color: white;
+    }
+    
+    .btn-linkedin:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 119, 181, 0.4);
+    }
+    
+    .social-icon {
+      width: 20px;
+      height: 20px;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      width: 40px;
+      height: 40px;
+      margin-left: -70px;
+    }
+    
+    /* Center the navigation bar */
+    .taskbar ul {
+      margin: 0 auto;
+    }
+    
+    /* Media queries for different screen sizes */
+    @media screen and (max-width: 768px) {
+      .taskbar {
+        flex-direction: column;
+        position: sticky;
+        top: 0;
+        padding: 15px 10px;
+      }
+      
+      .logo {
+        order: 2;
+        margin-top: 10px;
+      }
+      
+      .taskbar ul {
+        order: 1;
+      }
+      
+      .main-container {
+        padding-top: 120px; /* Adjusted for mobile taskbar height */
+      }
+      
+      .bio {
+        padding: 30px 25px;
+        font-size: 16px;
+        scroll-margin-top: 120px; /* Adjusted for mobile */
+      }
+      
+      .bio h2 {
+        font-size: 1.7rem;
+        margin-bottom: 20px;
+      }
+      
+      .bio p {
+        font-size: 1rem;
+      }
+      
+      .social-buttons {
+        gap: 15px;
+      }
+      
+      .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+    }
+    
+    @media screen and (max-width: 480px) {
+      .main-container {
+        padding-top: 140px; /* Adjusted for smaller mobile taskbar height */
+      }
+      
+      .bio {
+        padding: 25px 20px;
+        font-size: 14px;
+        scroll-margin-top: 140px; /* Adjusted for smaller mobile */
+      }
+      
+      .bio h2 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+      }
+      
+      .bio p {
+        font-size: 0.95rem;
+      }
+      
+      .social-buttons {
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 250px;
+      }
+    }
   </style>
-
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    j=d.createElement(s),dl=l!='dataLayer'?'&l'+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PKV53Q9T');</script>
-    <!-- End Google Tag Manager -->
-
+  })(window,document,'script','dataLayer','GTM-PKV53Q9T');</script>
+  <!-- End Google Tag Manager -->
 </head>
 <body>
   <video id="bg-video" src="images/bgvideo.mp4" autoplay loop muted></video>
-
+  
   <!-- Add the taskbar with navigation links -->
   <div class="taskbar">
     <ul>
@@ -145,38 +313,91 @@
       <li><a href="music.html">Music</a></li>
       <li><a href="motion_graphics.html">Motion Graphics</a></li>
       <li><a href="3d_visuals.html">3D Visuals</a></li>
-      <li><a href="marketing_content.html">Marketing Content</a></li> <!-- Removed "active" class -->
+      <li><a href="marketing_content.html">Marketing Content</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="logo">
       <img src="images/Haamiah (LOGO2).png" alt="Logo">
     </div>
   </div>
-
-  <div class="bio" id="bio">
-    <h2>Creative Artist | Music Producer | Motion Graphics Designer | Digital Artist</h2>
-    <p>
-      Hi, I'm Ali, a passionate and multi-talented creative artist specializing in music production, motion graphics, and digital art. With a unique blend of artistic vision and technical skills, I strive to create captivating and immersive experiences across various media platforms.
-    </p>
-    <p>
-      As a music producer, I craft mesmerizing soundscapes that transport listeners to different realms. My compositions are a fusion of various genres, capturing emotions and telling stories through melodies, rhythms, and harmonies. I draw inspiration from diverse musical influences, infusing my work with a distinct and innovative sound.
-    </p>
-    <p>
-      In the realm of motion graphics, I bring ideas to life through captivating visuals and animations. Whether it's designing dynamic title sequences, creating stunning visual effects, or crafting immersive motion graphics for multimedia projects, I strive to engage and captivate audiences with every frame.
-    </p>
-    <p>
-      My expertise also extends to digital art, where I explore the boundless possibilities of the digital canvas. Through digital illustrations, concept art, and experimental visuals, I push the boundaries of imagination and create visual narratives that leave a lasting impression.
-    </p>
-    <p>
-      With a relentless pursuit of creativity and a commitment to excellence, I am constantly honing my craft, experimenting with new techniques, and pushing the boundaries of artistic expression. I believe in the power of art to inspire, evoke emotions, and spark meaningful connections with audiences.
-    </p>
-    <p>
-      I am available for collaborations, commissions, and exciting creative opportunities. Feel free to explore my portfolio and get in touch to embark on a creative journey together.
-    </p>
+  
+  <div class="main-container">
+    <div class="bio" id="bio">
+      <h2>Creative Artist | Music Producer | Motion Graphics Designer | Digital Artist</h2>
+      <p>
+        Hi, I'm <span class="highlight">Ali</span>, a passionate and multi-talented creative artist specializing in music production, motion graphics, and digital art. With a unique blend of artistic vision and technical skills, I strive to create captivating and immersive experiences across various media platforms.
+      </p>
+      <p>
+        As a <span class="highlight">music producer</span>, I craft mesmerizing soundscapes that transport listeners to different realms. My compositions are a fusion of various genres, capturing emotions and telling stories through melodies, rhythms, and harmonies. I draw inspiration from diverse musical influences, infusing my work with a distinct and innovative sound.
+      </p>
+      <p>
+        In the realm of <span class="highlight">motion graphics</span>, I bring ideas to life through captivating visuals and animations. Whether it's designing dynamic title sequences, creating stunning visual effects, or crafting immersive motion graphics for multimedia projects, I strive to engage and captivate audiences with every frame.
+      </p>
+      <p>
+        My expertise also extends to <span class="highlight">digital art</span>, where I explore the boundless possibilities of the digital canvas. Through digital illustrations, concept art, and experimental visuals, I push the boundaries of imagination and create visual narratives that leave a lasting impression.
+      </p>
+      <p>
+        With a relentless pursuit of creativity and a commitment to excellence, I am constantly honing my craft, experimenting with new techniques, and pushing the boundaries of artistic expression. I believe in the power of art to inspire, evoke emotions, and spark meaningful connections with audiences.
+      </p>
+      <p>
+        I am available for collaborations, commissions, and exciting creative opportunities. Feel free to explore my portfolio and get in touch to embark on a creative journey together.
+      </p>
+      
+      <div class="get-in-touch">Get In Touch</div>
+      
+      <div class="social-buttons">
+        <a href="https://www.instagram.com/ali.kazeminy/" target="_blank" class="btn btn-instagram">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.012 4.971 1.67 4.971 4.971v9.282c0 3.418-2.27 6.306-5.398 6.306H12c-3.398 0-5.398-2.306-5.398-6.306V7.204c0-3.302 1.718-5.96 4.971-4.971C8.416 2.175 8.796 2.163 12 2.163zm0 2.804c-2.67 0-3.34 1.026-3.34 2.948v9.34c0 1.916.668 2.948 3.34 2.948h9.665c1.671 0 3.341-1.032 3.341-2.948V7.915c0-1.922-.67-2.948-3.34-2.948H12zm-2.238 9.34c-1.624 0-2.941-1.318-2.941-2.941s1.317-2.94 2.941-2.94 2.941 1.317 2.941 2.94-1.317 2.941-2.941 2.941z"/>
+          </svg>
+          Instagram
+        </a>
+        <a href="https://www.linkedin.com/in/ali-kazeminy-985b2528a" target="_blank" class="btn btn-linkedin">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561c.446-.869 1.56-1.429 3.014-1.429 2.863 0 3.981 1.88 3.981 4.002v5.391zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
   </div>
+  
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKV53Q9T"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+  
+  <script>
+    // Fix for Brave browser viewport height issue
+    document.addEventListener('DOMContentLoaded', function() {
+      // Function to adjust the main container height
+      function adjustContainerHeight() {
+        const taskbar = document.querySelector('.taskbar');
+        const mainContainer = document.querySelector('.main-container');
+        const bio = document.querySelector('.bio');
+        
+        // Get the actual height of the taskbar
+        const taskbarHeight = taskbar.offsetHeight;
+        
+        // Set the main container top padding to match the taskbar height
+        mainContainer.style.paddingTop = `${taskbarHeight + 20}px`;
+        
+        // Set the bio scroll margin to match the taskbar height
+        bio.style.scrollMarginTop = `${taskbarHeight + 20}px`;
+      }
+      
+      // Initial adjustment
+      adjustContainerHeight();
+      
+      // Adjust on window resize
+      window.addEventListener('resize', adjustContainerHeight);
+      
+      // Adjust on orientation change
+      window.addEventListener('orientationchange', function() {
+        // Wait a bit for the orientation change to complete
+        setTimeout(adjustContainerHeight, 100);
+      });
+    });
+  </script>
 </body>
 </html>
