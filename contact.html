@@ -26,7 +26,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      background-color: #00000080; /* Adjust the transparency and color as desired */
+      background-color: #00000080;
       z-index: 2;
       display: flex;
       justify-content: space-between;
@@ -58,13 +58,13 @@
     
     .taskbar ul li a:hover {
       color: aqua;
-      background-color: #000000; /* Adjust the background color on hover as desired */
+      background-color: #000000;
       transform: scale(1.1);
     }
     
     .taskbar ul li a.active {
       color: orange;
-      background-color: #000000; /* Adjust the background color when active as desired */
+      background-color: #000000;
     }
 
     .video-container {
@@ -81,15 +81,15 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 1; /* Adjust the opacity as desired */
-      filter: brightness(100%); /* Adjust the brightness as desired */
+      opacity: 1;
+      filter: brightness(100%);
     }
     
     .content {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 100px; /* Adjust the padding-top value to create space below the navigation bar */
+      padding-top: 100px;
     }
     
     .social-links {
@@ -100,29 +100,29 @@
     .social-links a {
       display: inline-block;
       margin: 10px;
-      opacity: 1; /* Adjust the opacity as desired */
-      color: white; /* Add the color property for the title */
+      opacity: 1;
+      color: white;
       text-decoration: none;
       position: relative;
     }
     
     .social-links img {
       display: block;
-      width: 100px; /* Increase the image width to make the logo images bigger */
-      height: 70px; /* Increase the image height to make the logo images bigger */
+      width: 100px;
+      height: 70px;
       transition: transform 0.3s;
     }
     
     .social-links a:hover img {
-      transform: scale(1.2); /* Increase the scale to enlarge the photo upon hovering */
+      transform: scale(1.2);
     }
     
     .social-links span {
       position: absolute;
-      bottom: -20px; /* Adjust the value to position the title */
+      bottom: -20px;
       left: 0;
       right: 0;
-      font-size: 14px; /* Adjust the font size as desired */
+      font-size: 14px;
       text-align: center;
     }
     
@@ -134,7 +134,7 @@
     .logo img {
       width: 40px;
       height: 40px;
-      margin-left: -70px; /* Adjust the margin as needed */
+      margin-left: -70px;
     }
     
     /* Center the navigation bar */
@@ -142,7 +142,14 @@
       margin: 0 auto;
     }
 
-    /* Rest of your CSS styles */
+    /* === NEW: Simple dark background behind text only === */
+    .text-bg {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 8px 16px;
+      border-radius: 6px;
+      display: inline-block;
+      margin: 10px 0;
+    }
 
   </style>
 
@@ -155,7 +162,6 @@
   <!-- End Google Tag Manager -->
 
 </head>
-
 <body>
   <div class="taskbar">
     <ul>
@@ -178,22 +184,26 @@
   </div>
 
   <div class="content">
-    <h1>Ali Kazeminy</h1>
+    <div class="text-bg">
+      <h1>Ali Kazeminy</h1>
+    </div>
     <img src="images/profile_pic.png" alt="Your Photo">
-
-<!--    <h2>Contact</h2>  -->
-    <!-- Your contact form goes here -->
-    <p></p>
-    <h2>Phone: +1 909-547-7497</h2>
-
+    <div class="text-bg">
+      <h2>Phone: +1 909-547-7497</h2>
+    </div>
+    <div class="text-bg">
+      <a href="mailto:info@HAAMIAH.com" style="color: white; text-decoration: none;">
+        <h2>Email</h2>
+      </a>
+    </div>
     <div class="social-links">
       <a href="mailto:info@HAAMIAH.com" target="_blank">
         <img src="images/Gmail_Logo.png" alt="Email">
-        <p></p>
         <span>Email</span> 
       </a>
     </div>
   </div>
+
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKV53Q9T"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
