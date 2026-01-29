@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    (function() {
+        var path = window.location.pathname;
+        var lowerPath = path.toLowerCase();
+        
+        // 1. Fix Case (SHABNAM -> shabnam)
+        // 2. Fix Extension (.htm -> .html)
+        // 3. Handle No Extension (shabnam -> shabnam.html)
+        var correctedPath = lowerPath;
+        if (correctedPath.endsWith('.htm')) {
+            correctedPath += 'l';
+        } else if (!correctedPath.endsWith('.html') && correctedPath.includes('shabnam')) {
+            correctedPath = correctedPath.replace(/shabnam.*/, 'shabnam.html');
+        }
+
+        if (path !== correctedPath) {
+            window.location.replace(correctedPath);
+        }
+    })();
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HAAMIAH - Collaboration (Shabnam)</title>
@@ -17,7 +38,6 @@
       min-height: 100vh;
       overflow-x: hidden;
       background-color: #0d181f;
-      /* Background Image */
       background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/HAAMIAH-WP.jpeg');
       background-size: cover;
       background-position: center;
@@ -25,7 +45,6 @@
       color: white;
     }
 
-    /* Simple Navigation Button */
     .top-action-bar {
       width: 100%;
       padding: 30px 0;
@@ -53,7 +72,6 @@
       box-shadow: 0 6px 20px rgba(255, 140, 0, 0.5);
     }
 
-    /* Background Logo Overlay */
     .bg-logo-overlay {
       position: fixed;
       top: 50%;
@@ -65,7 +83,6 @@
       pointer-events: none;
     }
 
-    /* Player Container */
     .main-container {
       width: 100%;
       flex: 1;
@@ -92,7 +109,6 @@
     h1 { color: #FFA500; font-size: 2rem; margin-bottom: 10px; }
     h2 { color: aqua; font-size: 1.2rem; margin-bottom: 30px; }
 
-    /* Media Player Elements */
     .controls { display: flex; flex-direction: column; gap: 20px; }
 
     .progress-container {
