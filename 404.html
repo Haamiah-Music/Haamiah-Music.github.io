@@ -5,20 +5,21 @@
     <title>Redirecting...</title>
     <script>
         (function() {
-            var currentUrl = window.location.href;
             var path = window.location.pathname.toLowerCase();
 
-            // 1. Check if the user was trying to reach 'shabnam'
+            // 1. Check for Shabnam (any casing)
             if (path.includes('shabnam')) {
-                // Force the correct lowercase extension
-                var target = "/shabnam.html";
-                window.location.replace(target);
+                window.location.replace("/shabnam.html");
             } 
-            // 2. Otherwise, if it's just a casing error for other pages, fix it
+            // 2. Check for Leyah (any casing)
+            else if (path.includes('leyah')) {
+                window.location.replace("/leyah.html");
+            }
+            // 3. Fix general casing for main pages (Home, Music, etc.)
             else if (/[A-Z]/.test(window.location.pathname)) {
                 window.location.replace(window.location.pathname.toLowerCase());
             }
-            // 3. If it's a legitimate dead link, go home
+            // 4. Default fallback: if the link is truly broken, go home
             else {
                 window.location.replace("/");
             }
