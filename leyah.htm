@@ -8,158 +8,56 @@
     @import url('https://fonts.googleapis.com/css2?family=Coda&display=swap');
 
     body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-family: 'Coda', sans-serif;
-      min-height: 100vh;
-      overflow-x: hidden;
+      margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center;
+      font-family: 'Coda', sans-serif; min-height: 100vh; overflow-x: hidden;
       background-color: #0d181f;
       background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/leyah-bg.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: white;
+      background-size: cover; background-position: center; background-attachment: fixed; color: white;
     }
 
-    .top-action-bar {
-      width: 100%;
-      padding: 30px 0;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      z-index: 10;
-    }
-
+    .top-action-bar { width: 100%; padding: 30px 0; display: flex; justify-content: center; gap: 15px; z-index: 10; }
+    
     .btn-visit-site, .btn-lyrics {
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-      padding: 10px 20px;
-      border-radius: 25px;
-      transition: all 0.3s ease;
-      font-weight: bold;
-      cursor: pointer;
-      border: none;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      color: white; text-decoration: none; font-size: 14px; padding: 10px 20px;
+      border-radius: 25px; transition: 0.3s; font-weight: bold; cursor: pointer; border: none;
+      text-transform: uppercase; letter-spacing: 1px;
     }
 
-    .btn-visit-site {
-      background: linear-gradient(135deg, #FF8C00, #FF4500);
-      box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
-    }
+    .btn-visit-site { background: linear-gradient(135deg, #FF8C00, #FF4500); box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3); }
+    .btn-lyrics { background: linear-gradient(135deg, #00ced1, #008b8b); box-shadow: 0 4px 15px rgba(0, 206, 209, 0.3); }
 
-    .btn-lyrics {
-      background: linear-gradient(135deg, #00ced1, #008b8b);
-      box-shadow: 0 4px 15px rgba(0, 206, 209, 0.3);
-    }
+    .btn-visit-site:hover, .btn-lyrics:hover { transform: translateY(-2px); filter: brightness(1.1); }
 
-    .btn-visit-site:hover, .btn-lyrics:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.1);
-    }
+    .bg-logo-overlay { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60%; opacity: 0.1; z-index: -1; pointer-events: none; }
 
-    .bg-logo-overlay {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 60%;
-      opacity: 0.1;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .main-container {
-      width: 100%;
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-bottom: 60px;
-      z-index: 1;
-    }
+    .main-container { width: 100%; flex: 1; display: flex; justify-content: center; align-items: center; padding-bottom: 60px; z-index: 1; }
 
     .player-card {
-      background-color: rgba(13, 24, 31, 0.9);
-      border: 1px solid rgba(0, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 40px;
-      max-width: 450px;
-      width: 85%;
-      text-align: center;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(15px);
+      background-color: rgba(13, 24, 31, 0.9); border: 1px solid rgba(0, 255, 255, 0.1);
+      border-radius: 20px; padding: 40px; max-width: 450px; width: 85%; text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px);
     }
 
     h1 { color: #FFA500; font-size: 1.8rem; margin-bottom: 5px; }
     h2 { color: aqua; font-size: 1rem; margin-bottom: 35px; opacity: 0.8; }
 
     .controls { display: flex; flex-direction: column; gap: 25px; }
-
-    .progress-container {
-      display: flex; align-items: center; gap: 12px; font-size: 0.8rem;
-    }
-
+    .progress-container { display: flex; align-items: center; gap: 12px; font-size: 0.8rem; }
     input[type="range"] { flex-grow: 1; cursor: pointer; accent-color: aqua; }
 
-    .buttons-row {
-      display: flex; justify-content: center; align-items: center; gap: 25px;
-    }
-
+    .buttons-row { display: flex; justify-content: center; align-items: center; gap: 25px; }
     .play-btn {
-      background: linear-gradient(135deg, aqua, #004d4d);
-      border: none; width: 65px; height: 65px; border-radius: 50%;
-      cursor: pointer; display: flex; justify-content: center; align-items: center;
-      transition: 0.3s; box-shadow: 0 5px 20px rgba(0, 255, 255, 0.4);
+      background: linear-gradient(135deg, aqua, #004d4d); border: none; width: 65px; height: 65px; border-radius: 50%;
+      cursor: pointer; display: flex; justify-content: center; align-items: center; transition: 0.3s;
+      box-shadow: 0 5px 20px rgba(0, 255, 255, 0.4);
     }
 
-    .repeat-btn {
-      background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.2); 
-      color: white; padding: 8px 15px; border-radius: 15px; cursor: pointer; font-size: 0.7rem;
-    }
-
+    .repeat-btn { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 8px 15px; border-radius: 15px; cursor: pointer; font-size: 0.7rem; }
     .repeat-btn.active { background: #FF8C00; border-color: #FF8C00; }
 
-    /* Lyrics Overlay (Modal) */
-    .lyrics-overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-      backdrop-filter: blur(5px);
-    }
-
-    .lyrics-box {
-      background: #0d181f;
-      border: 1px solid aqua;
-      border-radius: 20px;
-      padding: 40px;
-      max-width: 500px;
-      width: 80%;
-      max-height: 70vh;
-      overflow-y: auto;
-      text-align: center;
-      position: relative;
-      line-height: 1.6;
-      white-space: pre-wrap; /* Keeps the spacing of your .txt file */
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 15px; right: 20px;
-      color: #FF4500;
-      font-size: 24px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+    .lyrics-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
+    .lyrics-box { background: #0d181f; border: 1px solid aqua; border-radius: 20px; padding: 40px; max-width: 500px; width: 80%; max-height: 70vh; overflow-y: auto; text-align: center; position: relative; line-height: 1.6; white-space: pre-wrap; box-shadow: 0 0 30px rgba(0, 255, 255, 0.2); }
+    .close-btn { position: absolute; top: 15px; right: 20px; color: #FF4500; font-size: 24px; font-weight: bold; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -175,16 +73,13 @@
     <div class="player-card">
       <h1>For Leyah</h1>
       <h2>Exclusive Demo Preview</h2>
-
       <audio id="audio-player" src="music/demo/Labyrinth of the Sundial (Demo-Watermarked).mp3"></audio>
-
       <div class="controls">
         <div class="progress-container">
           <span id="current-time">0:00</span>
           <input type="range" id="seek-slider" value="0" max="100">
           <span id="duration">0:00</span>
         </div>
-
         <div class="buttons-row">
           <button class="repeat-btn" id="repeat-toggle">REPEAT: OFF</button>
           <button class="play-btn" id="play-pause">
@@ -192,7 +87,6 @@
             <svg id="pause-icon" width="28" height="28" viewBox="0 0 24 24" fill="white" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
           </button>
         </div>
-
         <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 10px;">
             <small style="color: #666; font-size: 0.7rem;">VOL</small>
             <input type="range" id="volume-slider" value="80" max="100" style="width: 80px;">
@@ -201,7 +95,7 @@
     </div>
   </div>
 
-  <div id="lyricsOverlay" class="lyrics-overlay" onclick="hideLyrics(event)">
+  <div id="lyricsOverlay" class="lyrics-overlay" onclick="hideLyrics()">
     <div class="lyrics-box" onclick="event.stopPropagation()">
       <span class="close-btn" onclick="hideLyrics()">&times;</span>
       <h3 style="color:aqua; margin-top: 0;">LYRICS</h3>
@@ -220,17 +114,9 @@
     const repeatBtn = document.getElementById('repeat-toggle');
     const volumeSlider = document.getElementById('volume-slider');
 
-    // PLAYER CONTROLS
     playBtn.addEventListener('click', () => {
-      if (audio.paused) {
-        audio.play();
-        playIcon.style.display = 'none';
-        pauseIcon.style.display = 'block';
-      } else {
-        audio.pause();
-        playIcon.style.display = 'block';
-        pauseIcon.style.display = 'none';
-      }
+      if (audio.paused) { audio.play(); playIcon.style.display = 'none'; pauseIcon.style.display = 'block'; }
+      else { audio.pause(); playIcon.style.display = 'block'; pauseIcon.style.display = 'none'; }
     });
 
     audio.addEventListener('timeupdate', () => {
@@ -243,45 +129,23 @@
       }
     });
 
-    seekSlider.addEventListener('input', () => {
-      audio.currentTime = audio.duration * (seekSlider.value / 100);
-    });
-
+    seekSlider.addEventListener('input', () => { audio.currentTime = audio.duration * (seekSlider.value / 100); });
     audio.addEventListener('loadedmetadata', () => {
       let mins = Math.floor(audio.duration / 60);
       let secs = Math.floor(audio.duration % 60);
       durationText.textContent = `${mins}:${secs < 10 ? '0' + secs : secs}`;
     });
 
-    repeatBtn.addEventListener('click', () => {
-      audio.loop = !audio.loop;
-      repeatBtn.textContent = audio.loop ? 'REPEAT: ON' : 'REPEAT: OFF';
-      repeatBtn.classList.toggle('active');
-    });
+    repeatBtn.addEventListener('click', () => { audio.loop = !audio.loop; repeatBtn.textContent = audio.loop ? 'REPEAT: ON' : 'REPEAT: OFF'; repeatBtn.classList.toggle('active'); });
+    volumeSlider.addEventListener('input', () => { audio.volume = volumeSlider.value / 100; });
 
-    volumeSlider.addEventListener('input', () => {
-      audio.volume = volumeSlider.value / 100;
-    });
-
-    // LYRICS LOGIC
     function showLyrics() {
       document.getElementById('lyricsOverlay').style.display = 'flex';
-      
-      // ADDRESS TO YOUR TEXT FILE:
-      // Since your lyrics.txt is in the same directory as the demo, use this path:
       fetch('music/demo/lyrics.txt')
-        .then(res => res.text())
-        .then(text => {
-          document.getElementById('lyrics-display').textContent = text;
-        })
-        .catch(() => {
-          document.getElementById('lyrics-display').textContent = "Lyrics currently unavailable.";
-        });
+        .then(res => res.text()).then(text => { document.getElementById('lyrics-display').textContent = text; })
+        .catch(() => { document.getElementById('lyrics-display').textContent = "Lyrics currently unavailable."; });
     }
-
-    function hideLyrics(e) {
-      document.getElementById('lyricsOverlay').style.display = 'none';
-    }
+    function hideLyrics() { document.getElementById('lyricsOverlay').style.display = 'none'; }
   </script>
 </body>
 </html>
