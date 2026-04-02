@@ -5,21 +5,34 @@
     <title>Redirecting...</title>
     <script>
         (function() {
+            // Get the current path (e.g., /LEYAH or /leyah)
             var path = window.location.pathname.toLowerCase();
+            
+            // Remove trailing slashes if they exist
+            if (path.endsWith('/')) {
+                path = path.slice(0, -1);
+            }
 
-            // 1. Check for Shabnam (any casing)
-            if (path.includes('shabnam')) {
-                window.location.replace("/shabnam.html");
-            } 
-            // 2. Check for Leyah (any casing)
-            else if (path.includes('leyah')) {
+            // 1. Logic for Leyah
+            if (path.includes('leyah')) {
                 window.location.replace("/leyah.html");
+                return;
+            } 
+            
+            // 2. Logic for Shabnam
+            else if (path.includes('shabnam')) {
+                window.location.replace("/shabnam.html");
+                return;
             }
-            // 3. Fix general casing for main pages (Home, Music, etc.)
-            else if (/[A-Z]/.test(window.location.pathname)) {
-                window.location.replace(window.location.pathname.toLowerCase());
+
+            // 3. General fix for other pages (Music, Home, etc.)
+            // If they typed /MUSIC, send to /music.html
+            else if (path.length > 1) {
+                window.location.replace(path + ".html");
+                return;
             }
-            // 4. Default fallback: if the link is truly broken, go home
+
+            // 4. Fallback to home
             else {
                 window.location.replace("/");
             }
