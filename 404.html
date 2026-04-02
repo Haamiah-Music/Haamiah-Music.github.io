@@ -5,39 +5,27 @@
     <title>Redirecting...</title>
     <script>
         (function() {
-            // 1. Get the path and force it to lowercase
+            var currentUrl = window.location.href;
             var path = window.location.pathname.toLowerCase();
-            
-            // 2. Kill any current loading to stop the "loop/tweak"
-            window.stop();
 
-            // 3. The "Leyah" Catch-All
-            // This catches /leyah, /LEYAH, /LeyAh, /leyah.html, etc.
+            // 1. Check if the user was trying to reach 'leyah'
             if (path.includes('leyah')) {
-                window.location.replace("/leyah.html");
-                return;
+                // Force the correct lowercase extension
+                var target = "/leyah.html";
+                window.location.replace(target);
             } 
-
-            // 4. The "Shabnam" Catch-All
-            else if (path.includes('shabnam')) {
-                window.location.replace("/shabnam.html");
-                return;
-            }
-
-            // 5. If it's something else with caps, try to lowercase it
+            // 2. Otherwise, if it's just a casing error for other pages, fix it
             else if (/[A-Z]/.test(window.location.pathname)) {
-                window.location.replace(path + ".html");
-                return;
+                window.location.replace(window.location.pathname.toLowerCase());
             }
-
-            // 6. Otherwise, go home
+            // 3. If it's a legitimate dead link, go home
             else {
                 window.location.replace("/");
             }
         })();
     </script>
 </head>
-<body style="background-color: #0d181f; color: white; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh;">
-    <p>Loading your exclusive preview...</p>
+<body>
+    <p>Redirecting to the correct page...</p>
 </body>
 </html>
