@@ -17,7 +17,7 @@
       min-height: 100vh;
       overflow-x: hidden;
       background-color: #0d181f;
-      /* Replace 'images/leyah-bg.jpg' with your actual background image path */
+      /* Background setup */
       background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/leyah-bg.jpg');
       background-size: cover;
       background-position: center;
@@ -145,17 +145,6 @@
       border-color: #FF8C00;
     }
 
-    .nocturne-tag {
-        position: fixed;
-        bottom: 15px;
-        right: 20px;
-        font-size: 10px;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        color: white;
-        opacity: 0.2;
-    }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -164,7 +153,7 @@
 </head>
 <body>
 
-  <img src="images/Haamiah (LOGO2).png" class="bg-logo-overlay" alt="">
+  <img src="images/compose.webp" class="bg-logo-overlay" alt="">
 
   <div class="top-action-bar">
     <a href="index.html" class="btn-visit-site">To visit my website click here</a>
@@ -175,7 +164,7 @@
       <h1>For Leyah</h1>
       <h2>Exclusive Demo Preview</h2>
 
-      <audio id="audio-player" src="music/DEMO/Leyah_Demo.mp3"></audio>
+      <audio id="audio-player" src="music/demo/Labyrinth of the Sundial (Demo-Watermarked).mp3"></audio>
 
       <div class="controls">
         <div class="progress-container">
@@ -200,8 +189,6 @@
       </div>
     </div>
   </div>
-
-  <div class="nocturne-tag">nocturne</div>
 
   <script>
     const audio = document.getElementById('audio-player');
