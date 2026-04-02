@@ -11,24 +11,15 @@
       margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center;
       font-family: 'Coda', sans-serif; min-height: 100vh; overflow-x: hidden;
       background-color: #0d181f;
-      /* Mobile Fix: Ensures the photo is visible even on vertical screens */
-      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/leyah-bg.jpg');
+      /* Visual Fix: The gradient overlay is REMOVED. The photo is now 100% visible with original colors. */
+      background: url('images/leyah-bg.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
       color: white;
     }
 
-    /* Stacked Buttons Logic */
-    .top-action-bar { 
-      width: 100%; 
-      padding: 30px 0; 
-      display: flex; 
-      flex-direction: column; 
-      align-items: center; 
-      gap: 15px; 
-      z-index: 10; 
-    }
+    .top-action-bar { width: 100%; padding: 30px 0; display: flex; flex-direction: column; align-items: center; gap: 15px; z-index: 10; }
     
     .btn-visit-site {
       color: white; text-decoration: none; font-size: 14px; padding: 10px 25px;
@@ -37,7 +28,6 @@
       background: linear-gradient(135deg, #FF8C00, #FF4500); box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
     }
 
-    /* Bigger Lyrics Button */
     .btn-lyrics {
       color: white; text-decoration: none; font-size: 18px; padding: 15px 40px;
       border-radius: 30px; transition: 0.3s; font-weight: bold; cursor: pointer; border: none;
@@ -52,13 +42,39 @@
     .main-container { width: 100%; flex: 1; display: flex; justify-content: center; align-items: center; padding-bottom: 60px; z-index: 1; }
 
     .player-card {
+      /* Maintaining readability with a darker card, contrasting against the now bright background photo */
       background-color: rgba(13, 24, 31, 0.9); border: 1px solid rgba(0, 255, 255, 0.1);
-      border-radius: 20px; padding: 40px; max-width: 450px; width: 85%; text-align: center;
+      border-radius: 20px; padding: 40px; max-width: 500px; width: 85%; text-align: center;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px);
     }
 
-    h1 { color: #FFA500; font-size: 1.8rem; margin-bottom: 5px; }
-    h2 { color: aqua; font-size: 1rem; margin-bottom: 35px; opacity: 0.8; }
+    /* Container for cover art and song title */
+    .metadata-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+      flex-wrap: wrap; /* Helps on very small screens */
+    }
+
+    .cover-art {
+      width: 100px; /* Adjust size as needed, big enough to be visible */
+      height: 100px;
+      object-fit: cover; /* Ensures rectangular photo doesn't stretch */
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    .titles {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    h1 { color: #FFA500; font-size: 1.8rem; margin: 0; }
+    h2 { color: aqua; font-size: 1rem; margin: 5px 0 0; opacity: 0.8; }
 
     .controls { display: flex; flex-direction: column; gap: 25px; }
     .progress-container { display: flex; align-items: center; gap: 12px; font-size: 0.8rem; }
@@ -80,8 +96,11 @@
 
     /* Extra Mobile Polish */
     @media (max-width: 600px) {
-      body { background-size: auto 100%; } /* Forces height coverage on tall screens */
+      body { background-size: auto 100%; }
       .player-card { padding: 30px 20px; }
+      .cover-art { width: 80px; height: 80px; } /* Slightly smaller on phones */
+      .metadata-container { gap: 10px; }
+      h1 { font-size: 1.5rem; }
     }
   </style>
 </head>
@@ -96,8 +115,15 @@
 
   <div class="main-container">
     <div class="player-card">
-      <h1>For Leyah</h1>
-      <h2>Exclusive Demo Preview</h2>
+      
+      <div class="metadata-container">
+        <img src="images/destino.png" alt="Song Cover Art" class="cover-art">
+        <div class="titles">
+          <h1>For Leyah</h1>
+          <h2>Exclusive Demo Preview</h2>
+        </div>
+      </div>
+
       <audio id="audio-player" src="music/demo/Labyrinth of the Sundial (Demo-Watermarked).mp3"></audio>
       <div class="controls">
         <div class="progress-container">
