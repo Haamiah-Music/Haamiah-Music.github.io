@@ -5,41 +5,39 @@
     <title>Redirecting...</title>
     <script>
         (function() {
-            // Get the current path (e.g., /LEYAH or /leyah)
+            // 1. Get the path and force it to lowercase
             var path = window.location.pathname.toLowerCase();
             
-            // Remove trailing slashes if they exist
-            if (path.endsWith('/')) {
-                path = path.slice(0, -1);
-            }
+            // 2. Kill any current loading to stop the "loop/tweak"
+            window.stop();
 
-            // 1. Logic for Leyah
+            // 3. The "Leyah" Catch-All
+            // This catches /leyah, /LEYAH, /LeyAh, /leyah.html, etc.
             if (path.includes('leyah')) {
                 window.location.replace("/leyah.html");
                 return;
             } 
-            
-            // 2. Logic for Shabnam
+
+            // 4. The "Shabnam" Catch-All
             else if (path.includes('shabnam')) {
                 window.location.replace("/shabnam.html");
                 return;
             }
 
-            // 3. General fix for other pages (Music, Home, etc.)
-            // If they typed /MUSIC, send to /music.html
-            else if (path.length > 1) {
+            // 5. If it's something else with caps, try to lowercase it
+            else if (/[A-Z]/.test(window.location.pathname)) {
                 window.location.replace(path + ".html");
                 return;
             }
 
-            // 4. Fallback to home
+            // 6. Otherwise, go home
             else {
                 window.location.replace("/");
             }
         })();
     </script>
 </head>
-<body>
-    <p>Redirecting to the correct page...</p>
+<body style="background-color: #0d181f; color: white; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <p>Loading your exclusive preview...</p>
 </body>
 </html>
