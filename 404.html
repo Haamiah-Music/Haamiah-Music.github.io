@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Redirecting...</title>
-    <script>
-        (function() {
-            var path = window.location.pathname.toLowerCase();
-
-            // This catches /LEYAH, /Leyah, or /leyah and sends them to the file
-            if (path.includes('leyah')) {
-                window.location.replace("/leyah.html");
-            } 
-            // If they type something else in CAPS, it lowercases it
-            else if (/[A-Z]/.test(window.location.pathname)) {
-                window.location.replace(window.location.pathname.toLowerCase());
-            }
-            // Otherwise, back to the main site
-            else {
-                window.location.replace("/");
-            }
-        })();
-    </script>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    // Traffic Controller: Redirects case-insensitive URLs to specific project pages
+    var path = window.location.pathname.toUpperCase();
+    
+    if (path.includes('/LEYAH')) {
+      window.location.href = 'https://haamiah.com/leyah.html';
+    } 
+    else if (path.includes('/JAVID')) {
+      window.location.href = 'https://haamiah.com/javid.html';
+    }
+    else {
+      // Default fallback to homepage for any other broken links
+      window.location.href = 'https://haamiah.com/';
+    }
+  </script>
 </head>
 <body>
-    <p>Redirecting to Leyah's preview...</p>
 </body>
 </html>
