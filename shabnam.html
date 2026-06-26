@@ -132,6 +132,11 @@
   </div>
 
   <script>
+    // Force lowercase/case-insensitivity for the page URL layout seamlessly
+    if (window.location.pathname !== window.location.pathname.toLowerCase()) {
+      window.history.replaceState(null, "", window.location.pathname.toLowerCase() + window.location.search + window.location.hash);
+    }
+
     const audio = document.getElementById('audio-player');
     const playBtn = document.getElementById('play-pause');
     const playIcon = document.getElementById('play-icon');
