@@ -12,13 +12,14 @@
       margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center;
       font-family: 'Coda', sans-serif; min-height: 100vh;
       background-color: #000;
-      /* FULL SCREEN BACKGROUND - NO FILTERS */
+      /* Default initial background - changes dynamically per track */
       background-image: url('images/phantom.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
       background-repeat: no-repeat;
       color: white;
+      transition: background-image 0.5s ease-in-out; /* Smooth crossfade between tracks */
     }
 
     .top-action-bar { 
@@ -49,16 +50,68 @@
       box-shadow: 0 30px 60px rgba(0,0,0,0.9);
     }
 
-    .metadata-container { display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
+    .metadata-container { display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 25px; flex-wrap: wrap; }
 
     .cover-art {
       width: 120px; height: 120px; object-fit: cover; border-radius: 10px;
       border: 1px solid rgba(255,255,255,0.2);
+      transition: src 0.3s ease;
     }
 
     .titles { display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
-    h1 { color: #FFA500; font-size: 1.8rem; margin: 0; }
+    h1 { color: #FFA500; font-size: 1.8rem; margin: 0; line-height: 1.2; }
     h2 { color: aqua; font-size: 1rem; margin: 5px 0 0; }
+
+    .tracklist-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 25px;
+      text-align: left;
+    }
+
+    .track-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 12px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .track-item:hover {
+      background: rgba(0, 255, 255, 0.1);
+      border-color: rgba(0, 255, 255, 0.4);
+    }
+
+    .track-item.active {
+      background: rgba(0, 206, 209, 0.2);
+      border-color: aqua;
+    }
+
+    .track-info .track-name {
+      font-size: 0.95rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .track-item.active .track-info .track-name {
+      color: aqua;
+    }
+
+    .track-info .track-genre {
+      font-size: 0.75rem;
+      color: #888;
+      margin-top: 2px;
+    }
+
+    .track-status {
+      font-size: 0.8rem;
+      color: aqua;
+    }
 
     .controls { display: flex; flex-direction: column; gap: 25px; }
     .progress-container { display: flex; align-items: center; gap: 12px; font-size: 0.8rem; }
@@ -74,7 +127,7 @@
     .repeat-btn.active { background: #FF8C00; }
 
     .lyrics-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 1000; justify-content: center; align-items: center; }
-    .lyrics-box { background: #000; border: 2px solid aqua; border-radius: 20px; padding: 40px; max-width: 500px; width: 85%; max-height: 75vh; overflow-y: auto; text-align: center; position: relative; white-space: pre-wrap; color: #fff; }
+    .lyrics-box { background: #000; border: 2px solid aqua; border-radius: 20px; padding: 40px; max-width: 500px; width: 85%; max-height: 75vh; overflow-y: auto; text-align: center; position: relative; white-space: pre-wrap; color: #fff; line-height: 1.6; }
     .close-btn { position: absolute; top: 15px; right: 20px; color: #FF4500; font-size: 28px; font-weight: bold; cursor: pointer; }
 
     @media (max-width: 600px) {
@@ -93,11 +146,16 @@
   <div class="main-container">
     <div class="player-card">
       <div class="metadata-container">
-        <img src="images/phantom.jpg" alt="Cover Art" class="cover-art">
+        <img id="cover-art-target" src="images/phantom.jpg" alt="Cover Art" class="cover-art">
         <div class="titles">
-          <h1>For Shabnam</h1>
-          <h2>Exclusive Demo Preview</h2>
+          <h1 id="display-title">Yadet Ba Man Hast</h1>
+          <h2 id="display-subtitle">Exclusive Demo Preview</h2>
         </div>
+      </div>
+
+      <!-- Unified Tracklist Insertion Point -->
+      <div class="tracklist-container" id="tracklist-wrapper">
+        <!-- Injected via JavaScript dynamically -->
       </div>
 
       <audio id="audio-player" src="music/demo/yadet_ba_man_hast.mp3"></audio>
@@ -126,16 +184,53 @@
   <div id="lyricsOverlay" class="lyrics-overlay" onclick="hideLyrics()">
     <div class="lyrics-box" onclick="event.stopPropagation()">
       <span class="close-btn" onclick="hideLyrics()">&times;</span>
-      <h3 style="color:aqua; margin-top: 0;">LYRICS</h3>
+      <h3 style="color:aqua; margin-top: 0; text-transform: uppercase;" id="lyrics-title">LYRICS</h3>
       <div id="lyrics-display">Loading...</div>
     </div>
   </div>
 
   <script>
-    // Force lowercase/case-insensitivity for the page URL layout seamlessly
     if (window.location.pathname !== window.location.pathname.toLowerCase()) {
       window.history.replaceState(null, "", window.location.pathname.toLowerCase() + window.location.search + window.location.hash);
     }
+
+    // 1. Unified Project EP Data Matrix (Isolated Lyrics Configuration)
+    const PROJECT_TRACKS = [
+      {
+        title: "Yadet Ba Man Hast",
+        subtitle: "Exclusive Demo Preview",
+        style: "Dark Pop / Farsi Original",
+        audioPath: "music/demo/yadet_ba_man_hast.mp3",
+        lyricsPath: "music/demo/lyrics-ybmh.txt",
+        imagePath: "images/phantom.jpg"
+      },
+      {
+        title: "Ashena",
+        subtitle: "Rhythmic Swing Concept",
+        style: "Burlesque Jazz / Showgirl Swing",
+        audioPath: "music/demo/Ashena.mp3",
+        lyricsPath: "music/demo/lyrics-ybmh.txt", // Change this string target later
+        imagePath: "images/ash.jpg"
+      },
+      {
+        title: "Wansin",
+        subtitle: "Labyrinth Style Preview",
+        style: "Atmospheric Dark Pop",
+        audioPath: "music/demo/Wansin.mp3",
+        lyricsPath: "music/demo/lyrics-ybmh.txt", // Change this string target later
+        imagePath: "images/mafia.png"
+      },
+      {
+        title: "Labyrinth of the Sundial",
+        subtitle: "Doja Style Concept",
+        style: "R&B / Hip-Hop Pocket",
+        audioPath: "music/demo/Labyrinth of the Sundial (Demo-Watermarked).mp3",
+        lyricsPath: "music/demo/lyrics-ybmh.txt", // Change this string target later
+        imagePath: "images/destino.png"
+      }
+    ];
+
+    let currentTrackIndex = 0;
 
     const audio = document.getElementById('audio-player');
     const playBtn = document.getElementById('play-pause');
@@ -146,10 +241,76 @@
     const durationText = document.getElementById('duration');
     const repeatBtn = document.getElementById('repeat-toggle');
     const volumeSlider = document.getElementById('volume-slider');
+    
+    const displayTitle = document.getElementById('display-title');
+    const displaySubtitle = document.getElementById('display-subtitle');
+    const tracklistWrapper = document.getElementById('tracklist-wrapper');
+    const coverArtTarget = document.getElementById('cover-art-target');
 
+    // 2. Render Interactive Track Layout
+    function buildTracklistUI() {
+      tracklistWrapper.innerHTML = '';
+      PROJECT_TRACKS.forEach((track, idx) => {
+        const item = document.createElement('div');
+        item.className = `track-item ${idx === currentTrackIndex ? 'active' : ''}`;
+        item.onclick = () => loadTrack(idx);
+
+        item.innerHTML = `
+          <div class="track-info">
+            <div class="track-name">${idx + 1}. ${track.title}</div>
+            <div class="track-genre">${track.style}</div>
+          </div>
+          <div class="track-status">${idx === currentTrackIndex ? '▶' : ''}</div>
+        `;
+        tracklistWrapper.appendChild(item);
+      });
+    }
+
+    // 3. Swap Audio Engines, Text Variables, & Media Asset Targets Cleanly
+    function loadTrack(index) {
+      const wasPlaying = !audio.paused;
+      currentTrackIndex = index;
+      
+      buildTracklistUI();
+
+      // Update Text Context
+      displayTitle.textContent = PROJECT_TRACKS[index].title;
+      displaySubtitle.textContent = PROJECT_TRACKS[index].subtitle;
+
+      // Update Dynamic Visual Assets (Card Art & Body Background)
+      coverArtTarget.src = PROJECT_TRACKS[index].imagePath;
+      document.body.style.backgroundImage = `url('${PROJECT_TRACKS[index].imagePath}')`;
+
+      // Update Native Audio Path Source
+      audio.src = PROJECT_TRACKS[index].audioPath;
+      audio.load();
+      
+      // Reset sliders visually immediately
+      seekSlider.value = 0;
+      currentTimeText.textContent = "0:00";
+
+      if (wasPlaying) {
+        audio.play().catch(() => {
+          playIcon.style.display = 'block';
+          pauseIcon.style.display = 'none';
+        });
+      } else {
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+      }
+    }
+
+    // Standard Native Audio Control Event Hooks
     playBtn.addEventListener('click', () => {
-      if (audio.paused) { audio.play(); playIcon.style.display = 'none'; pauseIcon.style.display = 'block'; }
-      else { audio.pause(); playIcon.style.display = 'block'; pauseIcon.style.display = 'none'; }
+      if (audio.paused) { 
+        audio.play(); 
+        playIcon.style.display = 'none'; 
+        pauseIcon.style.display = 'block'; 
+      } else { 
+        audio.pause(); 
+        playIcon.style.display = 'block'; 
+        pauseIcon.style.display = 'none'; 
+      }
     });
 
     audio.addEventListener('timeupdate', () => {
@@ -163,22 +324,45 @@
     });
 
     seekSlider.addEventListener('input', () => { audio.currentTime = audio.duration * (seekSlider.value / 100); });
+    
     audio.addEventListener('loadedmetadata', () => {
       let mins = Math.floor(audio.duration / 60);
       let secs = Math.floor(audio.duration % 60);
       durationText.textContent = `${mins}:${secs < 10 ? '0' + secs : secs}`;
     });
 
-    repeatBtn.addEventListener('click', () => { audio.loop = !audio.loop; repeatBtn.textContent = audio.loop ? 'REPEAT: ON' : 'REPEAT: OFF'; repeatBtn.classList.toggle('active'); });
+    repeatBtn.addEventListener('click', () => { 
+      audio.loop = !audio.loop; 
+      repeatBtn.textContent = audio.loop ? 'REPEAT: ON' : 'REPEAT: OFF'; 
+      repeatBtn.classList.toggle('active'); 
+    });
+    
     volumeSlider.addEventListener('input', () => { audio.volume = volumeSlider.value / 100; });
 
+    // 4. Dynamic Universal Lyric Loading Pipeline
     function showLyrics() {
       document.getElementById('lyricsOverlay').style.display = 'flex';
-      fetch('music/demo/lyrics-ybmh.txt')
-        .then(res => res.text()).then(text => { document.getElementById('lyrics-display').textContent = text; })
-        .catch(() => { document.getElementById('lyrics-display').textContent = "Lyrics currently unavailable."; });
+      const activeTrack = PROJECT_TRACKS[currentTrackIndex];
+      document.getElementById('lyrics-title').textContent = `LYRICS - ${activeTrack.title}`;
+      
+      fetch(activeTrack.lyricsPath)
+        .then(res => {
+          if (!res.ok) throw new Error();
+          return res.text();
+        })
+        .then(text => { 
+          document.getElementById('lyrics-display').textContent = text; 
+        })
+        .catch(() => { 
+          document.getElementById('lyrics-display').textContent = "Lyrics currently unavailable for this selection."; 
+        });
     }
+    
     function hideLyrics() { document.getElementById('lyricsOverlay').style.display = 'none'; }
+
+    window.onload = () => {
+      buildTracklistUI();
+    };
   </script>
 </body>
 </html>
